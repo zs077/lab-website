@@ -1,12 +1,15 @@
+'use client';
+
 import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ResearchAreaCard from '@/components/ResearchAreaCard';
 
-export const metadata: Metadata = {
-  title: '科研实验室 | 研究方向',
-  description: '了解我们在智能交通、多传感器融合和低可见场景感知等领域的前沿研究。',
-};
+// 客户端组件不能导出metadata
+// export const metadata: Metadata = {
+//   title: '科研实验室 | 研究方向',
+//   description: '了解我们在智能交通、多传感器融合和低可见场景感知等领域的前沿研究。',
+// };
 
 // 详细研究方向数据
 const researchAreas = [

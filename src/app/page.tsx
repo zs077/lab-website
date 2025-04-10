@@ -1,16 +1,12 @@
+'use client';
+
 import Link from 'next/link';
-import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
 import ResearchHighlights from '@/components/ResearchHighlights';
 import TeamPreview from '@/components/TeamPreview';
 import PublicationsPreview from '@/components/PublicationsPreview';
-
-export const metadata: Metadata = {
-  title: '科研实验室 | 首页',
-  description: '欢迎访问我们的科研实验室官方网站，了解我们的研究方向、团队成员和最新成果。',
-};
 
 export default function Home() {
   return (

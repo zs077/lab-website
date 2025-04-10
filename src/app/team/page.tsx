@@ -1,12 +1,15 @@
+'use client';
+
 import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import TeamMemberCard from '@/components/TeamMemberCard';
 
-export const metadata: Metadata = {
-  title: '科研实验室 | 团队成员',
-  description: '了解我们的研究团队成员，包括教授、研究人员和学生。',
-};
+// 客户端组件不能导出metadata
+// export const metadata: Metadata = {
+//   title: '科研实验室 | 团队成员',
+//   description: '了解我们的研究团队成员，包括教授、研究人员和学生。',
+// };
 
 // 团队成员数据
 const teamMembers = [

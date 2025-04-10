@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: '科研实验室',
-  description: '展示我们的研究方向、团队成员、科研成果和联系方式',
+  title: '科研实验室 | 首页',
+  description: '欢迎访问我们的科研实验室官方网站，了解我们的研究方向、团队成员和最新成果。',
 };
 
 export default function RootLayout({

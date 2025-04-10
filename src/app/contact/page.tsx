@@ -1,13 +1,16 @@
+'use client';
+
 import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { FiMail, FiMapPin, FiPhone, FiGithub, FiLinkedin } from 'react-icons/fi';
 
-export const metadata: Metadata = {
-  title: '科研实验室 | 联系我们',
-  description: '欢迎联系我们的实验室，了解更多研究合作和学习机会。',
-};
+// 客户端组件不能导出metadata
+// export const metadata: Metadata = {
+//   title: '科研实验室 | 联系我们',
+//   description: '欢迎联系我们的实验室，了解更多研究合作和学习机会。',
+// };
 
 export default function Contact() {
   return (

@@ -1,13 +1,16 @@
+'use client';
+
 import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PublicationList from '@/components/PublicationList';
 import VideoList from '@/components/VideoList';
 
-export const metadata: Metadata = {
-  title: '科研实验室 | 科研成果',
-  description: '查看我们团队在顶级期刊和会议发表的论文和研究成果。',
-};
+// 客户端组件不能导出metadata
+// export const metadata: Metadata = {
+//   title: '科研实验室 | 科研成果',
+//   description: '查看我们团队在顶级期刊和会议发表的论文和研究成果。',
+// };
 
 // 发表论文数据
 const papers = [
