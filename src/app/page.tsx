@@ -4,15 +4,18 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
 
-// 动态导入客户端组件
+// 将Navbar和Footer设置为客户端组件
 const Navbar = dynamic(() => import('@/components/Navbar'), {
-  loading: () => <div className="h-16 bg-black"></div>
+  loading: () => <div className="h-16 bg-black"></div>,
+  ssr: true // 仍然在服务器端渲染，但确保客户端激活
 });
 
 const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="h-40 bg-black"></div>
+  loading: () => <div className="h-40 bg-black"></div>,
+  ssr: true // 仍然在服务器端渲染，但确保客户端激活
 });
 
+// 内容组件保持ssr: false，避免交互问题
 const HeroSection = dynamic(() => import('@/components/HeroSection'), {
   loading: () => <Loading height="100vh" />,
   ssr: false

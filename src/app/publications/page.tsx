@@ -2,14 +2,17 @@
 
 import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
+import type { Metadata } from 'next';
 
 // 动态导入客户端组件
 const Navbar = dynamic(() => import('@/components/Navbar'), {
-  loading: () => <div className="h-16 bg-black"></div>
+  loading: () => <div className="h-16 bg-black"></div>,
+  ssr: true // 仍然在服务器端渲染，但确保客户端激活
 });
 
 const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="h-40 bg-black"></div>
+  loading: () => <div className="h-40 bg-black"></div>,
+  ssr: true // 仍然在服务器端渲染，但确保客户端激活
 });
 
 const PublicationList = dynamic(() => import('@/components/PublicationList'), {
@@ -22,7 +25,7 @@ const VideoList = dynamic(() => import('@/components/VideoList'), {
   ssr: false
 });
 
-// 客户端组件不能导出metadata
+// 客户端组件不能直接导出metadata
 // export const metadata: Metadata = {
 //   title: '科研实验室 | 科研成果',
 //   description: '查看我们团队在顶级期刊和会议发表的论文和研究成果。',
