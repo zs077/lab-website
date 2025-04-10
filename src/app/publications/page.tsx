@@ -1,18 +1,15 @@
-'use client';
-
 import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
 import type { Metadata } from 'next';
+import ClientWrapper from '@/components/ClientWrapper';
 
 // 动态导入客户端组件
 const Navbar = dynamic(() => import('@/components/Navbar'), {
   loading: () => <div className="h-16 bg-black"></div>,
-  ssr: true // 仍然在服务器端渲染，但确保客户端激活
 });
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-40 bg-black"></div>,
-  ssr: true // 仍然在服务器端渲染，但确保客户端激活
 });
 
 const PublicationList = dynamic(() => import('@/components/PublicationList'), {
@@ -25,11 +22,11 @@ const VideoList = dynamic(() => import('@/components/VideoList'), {
   ssr: false
 });
 
-// 客户端组件不能直接导出metadata
-// export const metadata: Metadata = {
-//   title: '科研实验室 | 科研成果',
-//   description: '查看我们团队在顶级期刊和会议发表的论文和研究成果。',
-// };
+// 启用元数据导出
+export const metadata: Metadata = {
+  title: '科研实验室 | 科研成果',
+  description: '查看我们团队在顶级期刊和会议发表的论文和研究成果。',
+};
 
 // 发表论文数据
 const papers = [
@@ -143,32 +140,33 @@ const videos = [
 export default function Publications() {
   return (
     <main className="flex min-h-screen flex-col">
-      <Navbar />
+      <ClientWrapper>
+        <Navbar />
+      </ClientWrapper>
       
-      <div className="pt-24 pb-16 bg-gradient-to-b from-black to-secondary">
+      <div className="pt-20 pb-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">科研成果</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
-            我们团队发表的学术论文、技术报告和研究项目展示
-          </p>
+          <h1 className="page-title mb-12">科研成果</h1>
+          
+          <section className="mb-20">
+            <h2 className="section-title mb-8">发表论文</h2>
+            <ClientWrapper>
+              <PublicationList publications={papers} />
+            </ClientWrapper>
+          </section>
+          
+          <section>
+            <h2 className="section-title mb-8">研究视频</h2>
+            <ClientWrapper>
+              <VideoList videos={videos} />
+            </ClientWrapper>
+          </section>
         </div>
       </div>
       
-      <div className="container mx-auto px-4 py-16">
-        {/* 论文部分 */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-10">学术论文</h2>
-          <PublicationList publications={papers} />
-        </section>
-        
-        {/* 视频演示部分 */}
-        <section>
-          <h2 className="text-3xl font-bold mb-10">视频演示</h2>
-          <VideoList videos={videos} />
-        </section>
-      </div>
-      
-      <Footer />
+      <ClientWrapper>
+        <Footer />
+      </ClientWrapper>
     </main>
   );
 } 

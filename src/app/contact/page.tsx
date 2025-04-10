@@ -1,25 +1,22 @@
-'use client';
-
 import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
 import { FiMail, FiMapPin, FiPhone, FiGithub, FiLinkedin } from 'react-icons/fi';
 import type { Metadata } from 'next';
+import ClientWrapper from '@/components/ClientWrapper';
 
-// 客户端组件不能直接导出metadata
-// export const metadata: Metadata = {
-//   title: '科研实验室 | 联系我们',
-//   description: '欢迎联系我们的实验室，了解更多研究合作和学习机会。',
-// };
+// 启用元数据导出
+export const metadata: Metadata = {
+  title: '科研实验室 | 联系我们',
+  description: '欢迎联系我们的实验室，了解更多研究合作和学习机会。',
+};
 
 // 动态导入客户端组件
 const Navbar = dynamic(() => import('@/components/Navbar'), {
   loading: () => <div className="h-16 bg-black"></div>,
-  ssr: true // 仍然在服务器端渲染，但确保客户端激活
 });
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-40 bg-black"></div>,
-  ssr: true // 仍然在服务器端渲染，但确保客户端激活
 });
 
 const ContactForm = dynamic(() => import('@/components/ContactForm'), {
@@ -30,122 +27,80 @@ const ContactForm = dynamic(() => import('@/components/ContactForm'), {
 export default function Contact() {
   return (
     <main className="flex min-h-screen flex-col">
-      <Navbar />
+      <ClientWrapper>
+        <Navbar />
+      </ClientWrapper>
       
-      <div className="pt-24 pb-16 bg-gradient-to-b from-black to-secondary">
+      <div className="pt-20 pb-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">联系我们</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
-            欢迎联系我们，了解更多研究合作和学习机会
-          </p>
-        </div>
-      </div>
-      
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* 联系信息 */}
-          <div>
-            <h2 className="text-3xl font-bold mb-8">联系方式</h2>
-            
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <FiMapPin className="text-primary mt-1 mr-4" size={24} />
-                <div>
-                  <h3 className="text-xl font-medium mb-2">地址</h3>
-                  <p className="text-gray-300">
-                    某大学某学院某楼<br />
-                    某市某区某路某号<br />
-                    邮编：100000
-                  </p>
-                </div>
-              </div>
+          <h1 className="page-title mb-12">联系我们</h1>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-2xl font-bold mb-6">联系方式</h2>
               
-              <div className="flex items-start">
-                <FiMail className="text-primary mt-1 mr-4" size={24} />
-                <div>
-                  <h3 className="text-xl font-medium mb-2">邮箱</h3>
-                  <p className="text-gray-300">
-                    <a href="mailto:contact@lab.edu" className="hover:text-primary">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-primary/10 p-3 rounded-lg">
+                    <FiMail className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">电子邮件</h3>
+                    <a href="mailto:contact@lab.edu" className="text-gray-300 hover:text-primary">
                       contact@lab.edu
                     </a>
-                  </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="bg-primary/10 p-3 rounded-lg">
+                    <FiMapPin className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">地址</h3>
+                    <p className="text-gray-300">
+                      某大学某学院某楼
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="bg-primary/10 p-3 rounded-lg">
+                    <FiPhone className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">电话</h3>
+                    <p className="text-gray-300">+123 456 7890</p>
+                  </div>
                 </div>
               </div>
               
-              <div className="flex items-start">
-                <FiPhone className="text-primary mt-1 mr-4" size={24} />
-                <div>
-                  <h3 className="text-xl font-medium mb-2">电话</h3>
-                  <p className="text-gray-300">
-                    +86 123 4567 8910
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="text-primary mt-1 mr-4">
-                  <FiGithub size={24} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-2">GitHub</h3>
-                  <p className="text-gray-300">
-                    <a 
-                      href="https://github.com/lab" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="hover:text-primary"
-                    >
-                      github.com/lab
-                    </a>
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="text-primary mt-1 mr-4">
-                  <FiLinkedin size={24} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-2">LinkedIn</h3>
-                  <p className="text-gray-300">
-                    <a 
-                      href="https://linkedin.com/company/lab" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="hover:text-primary"
-                    >
-                      linkedin.com/company/lab
-                    </a>
-                  </p>
+              <div className="mt-10">
+                <h2 className="text-2xl font-bold mb-6">关注我们</h2>
+                <div className="flex space-x-4">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-secondary p-3 rounded-lg hover:bg-primary/20 transition-colors">
+                    <FiGithub size={24} />
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-secondary p-3 rounded-lg hover:bg-primary/20 transition-colors">
+                    <FiLinkedin size={24} />
+                  </a>
                 </div>
               </div>
             </div>
             
-            {/* 地图嵌入 */}
-            <div className="mt-10 rounded-lg overflow-hidden">
-              <div className="aspect-[4/3] w-full relative glassmorphism p-1">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3049.xxxxx!2d116.xxxxx!3d40.xxxxx!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM4JzUzLjMiTiAxMTHCsDIwJzIxLjciRQ!5e0!3m2!1sen!2scn!4v1618xxxxx"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  title="实验室位置"
-                ></iframe>
-              </div>
+            <div>
+              <h2 className="text-2xl font-bold mb-6">发送消息</h2>
+              <ClientWrapper>
+                <ContactForm />
+              </ClientWrapper>
             </div>
-          </div>
-          
-          {/* 联系表单 */}
-          <div>
-            <h2 className="text-3xl font-bold mb-8">发送消息</h2>
-            <ContactForm />
           </div>
         </div>
       </div>
       
-      <Footer />
+      <ClientWrapper>
+        <Footer />
+      </ClientWrapper>
     </main>
   );
 } 

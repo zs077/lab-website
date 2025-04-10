@@ -1,78 +1,63 @@
-# 科研实验室展示网站
+# 科研实验室网站
 
-这是一个基于Next.js和Tailwind CSS开发的科研实验室展示网站，主要用于展示实验室的研究方向、团队成员、科研成果和联系方式。
+这是一个使用 Next.js 构建的科研实验室网站。
 
-## 特点
+## 开发
 
-- 现代极简设计风格，响应式布局
-- 流畅的动画效果和交互体验
-- 完整的内容展示模块：首页、研究方向、团队成员、科研成果、联系方式
-- 支持搜索和过滤功能
-- 表单验证和提交功能
+```bash
+# 安装依赖
+npm install
+
+# 运行开发服务器
+npm run dev
+
+# 构建生产版本
+npm run build
+
+# 运行生产版本
+npm run start
+
+# 清理构建缓存
+npm run clean
+```
 
 ## 技术栈
 
-- [Next.js](https://nextjs.org/) - React框架
-- [Tailwind CSS](https://tailwindcss.com/) - CSS框架
-- [Framer Motion](https://www.framer.com/motion/) - 动画库
-- [React Icons](https://react-icons.github.io/react-icons/) - 图标库
-- [TypeScript](https://www.typescriptlang.org/) - 类型安全的JavaScript
+- Next.js 14
+- React 18
+- TailwindCSS
+- Framer Motion
 
-## 开发指南
+## 部署注意事项
 
-### 安装依赖
+### 解决 npm 警告
 
-```bash
-npm install
-```
+项目已配置为处理以下常见警告：
 
-### 启动开发服务器
+1. **`.next` 目录警告**：
+   - `.next` 目录已添加到 `.gitignore`，确保不会上传到仓库
+   - 在部署平台上，将自动构建项目，无需上传 `.next` 目录
 
-```bash
-npm run dev
-```
+2. **已弃用包警告**：
+   - 使用 `overrides` 在 package.json 中强制使用较新版本的 `glob` 和 `rimraf`
+   - 更新了 ESLint 及其相关包到最新版本
+   - 使用 `fs-extra` 替代 `rimraf` 进行目录清理
 
-### 构建生产版本
+### 服务器端渲染 (SSR) 和 客户端交互
 
-```bash
-npm run build
-```
+为解决 "Event handlers cannot be passed to Client Component props" 错误：
 
-### 启动生产服务器
+1. 已移除 `next.config.js` 中的 `output: 'export'` 配置
+2. 创建了 `ClientWrapper` 组件作为客户端/服务器组件的边界
+3. 使用 `ClientWrapper` 包装所有带有交互的组件
+4. 为页面组件启用了服务器渲染以提高初始加载性能
 
-```bash
-npm start
-```
+### 图像优化
 
-## 文件结构
+配置了图像优化设置：
+- 使用 Next.js 内置的图像优化而非 `unoptimized` 选项
+- 配置了远程模式支持所有来源的图像
 
-```
-lab-website/
-├── public/            # 静态资源 (图片等)
-├── src/               # 源代码
-│   ├── app/           # 页面文件
-│   │   ├── page.tsx   # 首页
-│   │   ├── research/  # 研究方向页面
-│   │   ├── team/      # 团队成员页面
-│   │   ├── publications/ # 科研成果页面
-│   │   └── contact/   # 联系我们页面
-│   ├── components/    # 组件
-│   └── styles/        # 样式文件
-├── package.json       # 项目配置文件
-├── tailwind.config.js # Tailwind配置
-└── README.md          # 项目说明文档
-```
+## 许可
 
-## 部署
-
-该网站可以部署在Vercel平台上，只需连接到GitHub仓库即可自动部署。
-
-## 未来改进
-
-- 添加管理后台，用于内容更新
-- 增加中英文切换功能
-- 优化图片加载性能
-
-## 许可证
-
-MIT 
+私有项目 - 版权所有 
