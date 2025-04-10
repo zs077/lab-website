@@ -14,11 +14,40 @@ type Video = {
   year: number;
 };
 
-type VideoListProps = {
-  videos: Video[];
-};
+// 不再需要 VideoListProps
+// type VideoListProps = {
+//   videos: Video[];
+// };
 
-export default function VideoList({ videos }: VideoListProps) {
+export default function VideoList() {
+  // 视频演示数据
+  const videos = [
+    {
+      id: 1,
+      title: '全天候自动驾驶感知系统演示',
+      description: '展示我们实验室开发的全天候自动驾驶感知系统，该系统能够在各种恶劣天气条件下保持稳定的感知性能。视频包含雨天、雾天和夜间场景的实时检测结果。',
+      thumbnail: '/images/video-thumbnail1.jpg',
+      link: 'https://youtu.be/example1',
+      year: 2023,
+    },
+    {
+      id: 2,
+      title: '多传感器融合平台及应用',
+      description: '演示我们的多传感器融合平台如何整合摄像头、激光雷达和毫米波雷达数据，以提高环境感知能力。视频包含实验室测试和实际道路测试场景。',
+      thumbnail: '/images/video-thumbnail2.jpg',
+      link: 'https://youtu.be/example2',
+      year: 2022,
+    },
+    {
+      id: 3,
+      title: '智能交通系统实时监控与分析演示',
+      description: '展示我们开发的智能交通系统如何实时监控和分析城市交通流量，预测拥堵情况，并提供智能路线规划建议。',
+      thumbnail: '/images/video-thumbnail3.jpg',
+      link: 'https://youtu.be/example3',
+      year: 2022,
+    },
+  ];
+
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
   
   // 获取YouTube视频ID（从YouTube链接中）
