@@ -1,15 +1,27 @@
 'use client';
 
-import { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import TeamMemberCard from '@/components/TeamMemberCard';
+import dynamic from 'next/dynamic';
+import Loading from '@/components/Loading';
 
 // 客户端组件不能导出metadata
 // export const metadata: Metadata = {
 //   title: '科研实验室 | 团队成员',
 //   description: '了解我们的研究团队成员，包括教授、研究人员和学生。',
 // };
+
+// 动态导入客户端组件
+const Navbar = dynamic(() => import('@/components/Navbar'), {
+  loading: () => <div className="h-16 bg-black"></div>
+});
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-40 bg-black"></div>
+});
+
+const TeamMemberCard = dynamic(() => import('@/components/TeamMemberCard'), {
+  loading: () => <Loading height="30vh" />,
+  ssr: false
+});
 
 // 团队成员数据
 const teamMembers = [

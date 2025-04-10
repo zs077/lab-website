@@ -1,12 +1,37 @@
 'use client';
 
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import HeroSection from '@/components/HeroSection';
-import ResearchHighlights from '@/components/ResearchHighlights';
-import TeamPreview from '@/components/TeamPreview';
-import PublicationsPreview from '@/components/PublicationsPreview';
+import dynamic from 'next/dynamic';
+import Loading from '@/components/Loading';
+
+// 动态导入客户端组件
+const Navbar = dynamic(() => import('@/components/Navbar'), {
+  loading: () => <div className="h-16 bg-black"></div>
+});
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-40 bg-black"></div>
+});
+
+const HeroSection = dynamic(() => import('@/components/HeroSection'), {
+  loading: () => <Loading height="100vh" />,
+  ssr: false
+});
+
+const ResearchHighlights = dynamic(() => import('@/components/ResearchHighlights'), {
+  loading: () => <Loading height="60vh" />,
+  ssr: false
+});
+
+const TeamPreview = dynamic(() => import('@/components/TeamPreview'), {
+  loading: () => <Loading height="60vh" />,
+  ssr: false
+});
+
+const PublicationsPreview = dynamic(() => import('@/components/PublicationsPreview'), {
+  loading: () => <Loading height="60vh" />,
+  ssr: false
+});
 
 export default function Home() {
   return (

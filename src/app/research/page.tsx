@@ -1,15 +1,27 @@
 'use client';
 
-import { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import ResearchAreaCard from '@/components/ResearchAreaCard';
+import dynamic from 'next/dynamic';
+import Loading from '@/components/Loading';
 
 // 客户端组件不能导出metadata
 // export const metadata: Metadata = {
 //   title: '科研实验室 | 研究方向',
 //   description: '了解我们在智能交通、多传感器融合和低可见场景感知等领域的前沿研究。',
 // };
+
+// 动态导入客户端组件
+const Navbar = dynamic(() => import('@/components/Navbar'), {
+  loading: () => <div className="h-16 bg-black"></div>
+});
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-40 bg-black"></div>
+});
+
+const ResearchAreaCard = dynamic(() => import('@/components/ResearchAreaCard'), {
+  loading: () => <Loading height="50vh" />,
+  ssr: false
+});
 
 // 详细研究方向数据
 const researchAreas = [

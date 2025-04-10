@@ -1,9 +1,7 @@
 'use client';
 
-import { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import ContactForm from '@/components/ContactForm';
+import dynamic from 'next/dynamic';
+import Loading from '@/components/Loading';
 import { FiMail, FiMapPin, FiPhone, FiGithub, FiLinkedin } from 'react-icons/fi';
 
 // 客户端组件不能导出metadata
@@ -11,6 +9,20 @@ import { FiMail, FiMapPin, FiPhone, FiGithub, FiLinkedin } from 'react-icons/fi'
 //   title: '科研实验室 | 联系我们',
 //   description: '欢迎联系我们的实验室，了解更多研究合作和学习机会。',
 // };
+
+// 动态导入客户端组件
+const Navbar = dynamic(() => import('@/components/Navbar'), {
+  loading: () => <div className="h-16 bg-black"></div>
+});
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-40 bg-black"></div>
+});
+
+const ContactForm = dynamic(() => import('@/components/ContactForm'), {
+  loading: () => <Loading height="40vh" />,
+  ssr: false
+});
 
 export default function Contact() {
   return (

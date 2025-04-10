@@ -1,10 +1,26 @@
 'use client';
 
-import { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import PublicationList from '@/components/PublicationList';
-import VideoList from '@/components/VideoList';
+import dynamic from 'next/dynamic';
+import Loading from '@/components/Loading';
+
+// 动态导入客户端组件
+const Navbar = dynamic(() => import('@/components/Navbar'), {
+  loading: () => <div className="h-16 bg-black"></div>
+});
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-40 bg-black"></div>
+});
+
+const PublicationList = dynamic(() => import('@/components/PublicationList'), {
+  loading: () => <Loading height="40vh" />,
+  ssr: false
+});
+
+const VideoList = dynamic(() => import('@/components/VideoList'), {
+  loading: () => <Loading height="40vh" />,
+  ssr: false
+});
 
 // 客户端组件不能导出metadata
 // export const metadata: Metadata = {

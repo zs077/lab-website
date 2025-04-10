@@ -1,1 +1,98 @@
-{}
+{
+  "app\\page.tsx -> @/components/Footer": {
+    "id": "app\\page.tsx -> @/components/Footer",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Footer_tsx-_0f4b1.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/HeroSection": {
+    "id": "app\\page.tsx -> @/components/HeroSection",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_HeroSection_tsx.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/Navbar": {
+    "id": "app\\page.tsx -> @/components/Navbar",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Navbar_tsx-_53b61.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/PublicationsPreview": {
+    "id": "app\\page.tsx -> @/components/PublicationsPreview",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_PublicationsPreview_tsx.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/ResearchHighlights": {
+    "id": "app\\page.tsx -> @/components/ResearchHighlights",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_ResearchHighlights_tsx.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/TeamPreview": {
+    "id": "app\\page.tsx -> @/components/TeamPreview",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_TeamPreview_tsx.js"
+    ]
+  },
+  "app\\publications\\page.tsx -> @/components/Footer": {
+    "id": "app\\publications\\page.tsx -> @/components/Footer",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Footer_tsx-_0f4b0.js"
+    ]
+  },
+  "app\\publications\\page.tsx -> @/components/Navbar": {
+    "id": "app\\publications\\page.tsx -> @/components/Navbar",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Navbar_tsx-_53b60.js"
+    ]
+  },
+  "app\\publications\\page.tsx -> @/components/PublicationList": {
+    "id": "app\\publications\\page.tsx -> @/components/PublicationList",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_PublicationList_tsx.js"
+    ]
+  },
+  "app\\publications\\page.tsx -> @/components/VideoList": {
+    "id": "app\\publications\\page.tsx -> @/components/VideoList",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_VideoList_tsx.js"
+    ]
+  },
+  "app\\research\\page.tsx -> @/components/Footer": {
+    "id": "app\\research\\page.tsx -> @/components/Footer",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Footer_tsx-_0f4b0.js"
+    ]
+  },
+  "app\\research\\page.tsx -> @/components/Navbar": {
+    "id": "app\\research\\page.tsx -> @/components/Navbar",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Navbar_tsx-_53b60.js"
+    ]
+  },
+  "app\\research\\page.tsx -> @/components/ResearchAreaCard": {
+    "id": "app\\research\\page.tsx -> @/components/ResearchAreaCard",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_ResearchAreaCard_tsx.js"
+    ]
+  },
+  "app\\team\\page.tsx -> @/components/Footer": {
+    "id": "app\\team\\page.tsx -> @/components/Footer",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Footer_tsx-_0f4b0.js"
+    ]
+  },
+  "app\\team\\page.tsx -> @/components/Navbar": {
+    "id": "app\\team\\page.tsx -> @/components/Navbar",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Navbar_tsx-_53b60.js"
+    ]
+  },
+  "app\\team\\page.tsx -> @/components/TeamMemberCard": {
+    "id": "app\\team\\page.tsx -> @/components/TeamMemberCard",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_TeamMemberCard_tsx.js"
+    ]
+  }
+}

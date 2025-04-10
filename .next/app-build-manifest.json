@@ -1,14 +1,14 @@
 {
   "pages": {
-    "/research/page": [
+    "/team/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/research/page.js"
+      "static/chunks/app/team/page.js"
     ],
-    "/research/layout": [
+    "/team/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/research/layout.js"
+      "static/chunks/app/team/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -26,10 +26,30 @@
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
+    "/research/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/research/page.js"
+    ],
+    "/research/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/research/layout.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
+    ],
+    "/publications/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/publications/page.js"
+    ],
+    "/publications/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/publications/layout.js"
     ]
   }
 }
