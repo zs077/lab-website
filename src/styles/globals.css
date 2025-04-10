@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 10, 10, 10;
+  --primary-color: 0, 112, 243;
+  --secondary-color: 26, 26, 26;
+  --accent-color: 99, 102, 241;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    fixed;
+}
+
+@layer components {
+  .nav-link {
+    @apply text-gray-300 hover:text-white transition-colors duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-2 rounded-md hover:bg-opacity-80 transition-all duration-300;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 md:mb-8;
+  }
+  
+  .card {
+    @apply bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .glassmorphism {
+    @apply bg-white/10 backdrop-blur-md border border-white/10 rounded-xl;
+  }
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background-start-rgb));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary-color), 0.7);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary-color));
+} 

@@ -1,0 +1,22 @@
+# 占位图片资源
+
+以下是获取合适的图片资源的建议来源：
+
+1. Unsplash (https://unsplash.com) - 提供免费高质量图片
+2. Pexels (https://pexels.com) - 提供免费高质量图片和视频
+3. iStock/Shutterstock - 付费图片资源，但质量更高
+
+## 推荐搜索关键词
+
+- 背景图：laboratory, research, science, technology, innovation
+- 研究方向图：autonomous driving, sensor fusion, traffic system, cameras, computer vision
+- 团队成员：professional headshot, academic portrait
+- 视频缩略图：technology demo, research demonstration
+
+## 图片处理工具
+
+- Adobe Photoshop/Lightroom - 专业图片处理
+- GIMP - 免费开源的图片处理软件
+- Canva - 在线简易设计工具
+
+请确保所有使用的图片都已获得适当的授权或许可。 
