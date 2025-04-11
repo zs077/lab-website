@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import SearchBar from './SearchBar';
+import ClientWrapper from './ClientWrapper';
 
 const navLinks = [
   { name: '首页', path: '/' },
@@ -60,7 +61,9 @@ export default function Navbar() {
             </Link>
           ))}
           
-          <SearchBar />
+          <ClientWrapper>
+            <SearchBar />
+          </ClientWrapper>
           
           <div className="ml-2 flex items-center space-x-4">
             <button className="text-gray-300 hover:text-white">中</button>
@@ -71,7 +74,9 @@ export default function Navbar() {
         
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
-          <SearchBar />
+          <ClientWrapper>
+            <SearchBar />
+          </ClientWrapper>
           <button
             className="ml-2 text-white focus:outline-none"
             onClick={toggleMenu}

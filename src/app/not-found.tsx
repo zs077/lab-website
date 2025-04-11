@@ -1,10 +1,12 @@
+'use client';
+
 import Link from 'next/link';
-import { Metadata } from 'next';
 import { FiArrowLeft, FiHome } from 'react-icons/fi';
 
-export const metadata: Metadata = {
-  title: '页面未找到 | 科研实验室',
-};
+// 客户端组件不能导出metadata
+// export const metadata: Metadata = {
+//   title: '页面未找到 | 科研实验室',
+// };
 
 export default function NotFound() {
   return (

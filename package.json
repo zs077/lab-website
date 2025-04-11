@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "node -e \"const fs=require('fs-extra');fs.existsSync('.next')&&fs.removeSync('.next')\""
+    "clean": "node -e \"const fs=require('fs-extra');fs.existsSync('.next')&&fs.removeSync('.next')\"",
+    "rebuild": "npm run clean && npm run build"
   },
   "dependencies": {
     "next": "^14.2.28",
