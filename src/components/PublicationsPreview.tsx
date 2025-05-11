@@ -5,37 +5,37 @@ import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import { FiFileText, FiVideo, FiExternalLink } from 'react-icons/fi';
 
-// 示例发表论文数据
+// Sample publication data
 const publications = [
   {
     id: 1,
-    title: '基于深度学习的交通场景全天候感知方法',
-    authors: '张教授, 李博士, 王博士',
+    title: 'Deep Learning-based All-weather Traffic Scene Perception',
+    authors: 'Prof. Zhang, Dr. Li, Dr. Wang',
     venue: 'IEEE Transactions on Intelligent Transportation Systems, 2023',
     link: 'https://example.com/paper1',
     type: 'paper',
   },
   {
     id: 2,
-    title: '多模态传感器融合框架在自动驾驶中的应用',
-    authors: '李博士, 张教授',
+    title: 'Multi-modal Sensor Fusion Framework for Autonomous Driving',
+    authors: 'Dr. Li, Prof. Zhang',
     venue: 'Computer Vision and Pattern Recognition (CVPR), 2022',
     link: 'https://example.com/paper2',
     type: 'paper',
   },
   {
     id: 3,
-    title: '基于注意力机制的低可见度场景目标检测',
-    authors: '王博士, 刘同学, 张教授',
+    title: 'Attention-based Object Detection in Low-visibility Scenes',
+    authors: 'Dr. Wang, Mr. Liu, Prof. Zhang',
     venue: 'European Conference on Computer Vision (ECCV), 2022',
     link: 'https://example.com/paper3',
     type: 'paper',
   },
   {
     id: 4,
-    title: '全天候自动驾驶感知系统演示',
-    authors: '张教授团队',
-    venue: '人工智能与机器人大会演示, 2023',
+    title: 'All-weather Autonomous Driving Perception System Demo',
+    authors: 'Prof. Zhang\'s Team',
+    venue: 'AI and Robotics Conference Demo, 2023',
     link: 'https://youtu.be/example1',
     type: 'video',
   },
@@ -56,7 +56,7 @@ export default function PublicationsPreview() {
           transition={{ duration: 0.5 }}
           className="section-title"
         >
-          科研成果
+          Research Outputs
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ export default function PublicationsPreview() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl text-gray-300 max-w-3xl mx-auto"
         >
-          我们在顶级期刊和会议发表的最新研究成果
+          Our latest research findings published in top-tier journals and conferences
         </motion.p>
       </div>
 
@@ -105,7 +105,7 @@ export default function PublicationsPreview() {
                   rel="noopener noreferrer" 
                   className="text-primary hover:text-blue-400 inline-flex items-center text-sm"
                 >
-                  查看详情
+                  View Details
                   <FiExternalLink className="ml-1" size={14} />
                 </a>
               </div>
@@ -119,7 +119,7 @@ export default function PublicationsPreview() {
           href="/publications"
           className="btn-primary inline-block"
         >
-          查看全部科研成果
+          View All Publications
         </Link>
       </div>
     </section>

@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
 import ClientWrapper from '@/components/ClientWrapper';
 
-// 导入导航栏和页脚组件
+// Import navbar and footer components
 const Navbar = dynamic(() => import('@/components/Navbar'), {
   loading: () => <div className="h-16 bg-black"></div>,
 });
@@ -12,7 +12,7 @@ const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-40 bg-black"></div>,
 });
 
-// 内容组件保持ssr: false，避免交互问题
+// Content components with ssr: false to avoid interaction issues
 const HeroSection = dynamic(() => import('@/components/HeroSection'), {
   loading: () => <Loading height="100vh" />,
   ssr: false
@@ -33,16 +33,16 @@ const PublicationsPreview = dynamic(() => import('@/components/PublicationsPrevi
   ssr: false
 });
 
-// 设置页面元数据
+// Set page metadata
 export const metadata = {
-  title: '科研实验室 | 首页',
-  description: '欢迎访问我们的科研实验室官方网站，了解我们的研究方向、团队成员和最新成果。',
+  title: 'Research Lab | Home',
+  description: 'Welcome to our research laboratory official website. Learn about our research areas, team members, and latest achievements.',
 };
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* 使用ClientWrapper包装所有带有交互的组件 */}
+      {/* Use ClientWrapper to wrap all components with interactions */}
       <ClientWrapper>
         <Navbar />
       </ClientWrapper>
@@ -69,13 +69,13 @@ export default function Home() {
         </div>
         
         <div className="my-24 text-center">
-          <h2 className="section-title">联系我们</h2>
-          <p className="text-xl mb-8">有任何问题或合作意向，欢迎随时联系我们</p>
+          <h2 className="section-title">Contact Us</h2>
+          <p className="text-xl mb-8">For any questions or collaboration opportunities, feel free to contact us</p>
           <Link 
             href="/contact" 
             className="btn-primary inline-block"
           >
-            了解更多
+            Learn More
           </Link>
         </div>
       </div>

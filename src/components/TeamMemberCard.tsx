@@ -104,17 +104,17 @@ export default function TeamMemberCard({ member }: TeamMemberProps) {
           >
             <div className="space-y-3">
               <div>
-                <h4 className="text-primary font-semibold">教育背景</h4>
+                <h4 className="text-primary font-semibold">Education</h4>
                 <p className="text-gray-300 text-sm">{member.education}</p>
               </div>
               
               <div>
-                <h4 className="text-primary font-semibold">研究方向</h4>
+                <h4 className="text-primary font-semibold">Research Interests</h4>
                 <p className="text-gray-300 text-sm">{member.research}</p>
               </div>
               
               <div>
-                <h4 className="text-primary font-semibold">个人简介</h4>
+                <h4 className="text-primary font-semibold">Biography</h4>
                 <p className="text-gray-300 text-sm">{member.bio}</p>
               </div>
             </div>

@@ -3,13 +3,13 @@ import Loading from '@/components/Loading';
 import ClientWrapper from '@/components/ClientWrapper';
 import type { Metadata } from 'next';
 
-// 恢复元数据导出
+// Metadata export
 export const metadata: Metadata = {
-  title: '科研实验室 | 团队成员',
-  description: '了解我们的研究团队成员，包括教授、研究人员和学生。',
+  title: 'Research Lab | Team Members',
+  description: 'Learn about our research team members, including professors, researchers, and students.',
 };
 
-// 动态导入客户端组件
+// Dynamically import client components
 const Navbar = dynamic(() => import('@/components/Navbar'), {
   loading: () => <div className="h-16 bg-black"></div>
 });
@@ -32,10 +32,10 @@ export default function Team() {
       
       <div className="pt-24 pb-16 bg-gradient-to-b from-black to-secondary">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">团队成员</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">Team Members</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
-            我们的团队由来自不同背景的杰出研究人员和学生组成，
-            共同致力于推动前沿科学研究和技术创新
+            Our team consists of outstanding researchers and students from diverse backgrounds,
+            working together to advance cutting-edge scientific research and technological innovation
           </p>
         </div>
       </div>

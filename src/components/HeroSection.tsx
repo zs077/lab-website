@@ -13,7 +13,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* 背景图片 */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         <div className="absolute w-full h-full">
@@ -27,7 +27,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* 内容 */}
+      {/* Content */}
       <div ref={ref} className="relative z-10 container mx-auto px-4 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -35,7 +35,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white"
         >
-          科研实验室
+          Research Laboratory
         </motion.h1>
         
         <motion.p
@@ -44,7 +44,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-8"
         >
-          探索未知，创新科技，引领未来
+          Exploring the Unknown, Innovating Technology, Leading the Future
         </motion.p>
         
         <motion.div
@@ -57,18 +57,18 @@ export default function HeroSection() {
             href="#research"
             className="btn-primary"
           >
-            了解研究方向
+            Explore Research
           </a>
           <a
             href="/contact"
             className="px-6 py-2 rounded-md border border-white text-white hover:bg-white hover:text-black transition-all duration-300"
           >
-            联系我们
+            Contact Us
           </a>
         </motion.div>
       </div>
       
-      {/* 下滑指示器 */}
+      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}

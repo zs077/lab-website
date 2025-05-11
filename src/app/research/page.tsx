@@ -3,13 +3,13 @@ import Loading from '@/components/Loading';
 import ClientWrapper from '@/components/ClientWrapper';
 import type { Metadata } from 'next';
 
-// 恢复元数据导出
+// Metadata export
 export const metadata: Metadata = {
-  title: '科研实验室 | 研究方向',
-  description: '了解我们在智能交通、多传感器融合和低可见场景感知等领域的前沿研究。',
+  title: 'Research Lab | Research Areas',
+  description: 'Learn about our cutting-edge research in intelligent transportation, multi-sensor fusion, and low-visibility scene perception.',
 };
 
-// 动态导入客户端组件
+// Dynamically import client components
 const Navbar = dynamic(() => import('@/components/Navbar'), {
   loading: () => <div className="h-16 bg-black"></div>
 });
@@ -32,10 +32,10 @@ export default function Research() {
       
       <div className="pt-24 pb-16 bg-gradient-to-b from-black to-secondary">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">研究方向</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">Research Areas</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
-            我们的实验室在计算机视觉、深度学习和智能交通领域进行尖端研究，
-            旨在解决实际问题并推动科技创新
+            Our laboratory conducts cutting-edge research in computer vision, deep learning, and intelligent transportation,
+            aiming to solve practical problems and drive technological innovation
           </p>
         </div>
       </div>

@@ -2,134 +2,134 @@
 
 import TeamMemberCard from '@/components/TeamMemberCard';
 
-// 团队成员数据
+// Team member data
 const teamMembers = [
-  // 教授
+  // Professors
   {
     id: 1,
-    name: '张教授',
-    title: '教授，博士生导师',
+    name: 'Prof. Zhang',
+    title: 'Professor, PhD Supervisor',
     avatar: '/images/professor.jpg',
     email: 'professor@lab.edu',
     website: 'https://example.com/professor',
-    education: 'MIT博士，计算机科学',
-    research: '智能交通系统，计算机视觉',
-    bio: '张教授是国家杰出青年科学基金获得者，IEEE Fellow，曾在多个顶级国际会议和期刊发表论文。主持多项国家自然科学基金和国家重点研发计划项目。',
+    education: 'PhD in Computer Science, MIT',
+    research: 'Intelligent Transportation Systems, Computer Vision',
+    bio: 'Prof. Zhang is a recipient of the National Science Fund for Distinguished Young Scholars and IEEE Fellow. He has published papers in multiple top international conferences and journals. He leads multiple projects funded by the National Natural Science Foundation and National Key R&D Program.',
     category: 'faculty',
   },
   {
     id: 2,
-    name: '李博士',
-    title: '副教授，博士生导师',
+    name: 'Dr. Li',
+    title: 'Associate Professor, PhD Supervisor',
     avatar: '/images/researcher1.jpg',
     email: 'researcher1@lab.edu',
     website: 'https://example.com/researcher1',
-    education: 'Stanford大学博士，计算机科学',
-    research: '多传感器融合，自动驾驶感知',
-    bio: '李博士主要研究方向为多传感器融合和自动驾驶感知，在计算机视觉和人工智能领域发表多篇高水平论文。曾获得IEEE最佳论文奖和青年科学家奖。',
+    education: 'PhD in Computer Science, Stanford University',
+    research: 'Multi-sensor Fusion, Autonomous Driving Perception',
+    bio: 'Dr. Li\'s main research areas are multi-sensor fusion and autonomous driving perception. He has published numerous high-level papers in computer vision and artificial intelligence. He has received the IEEE Best Paper Award and Young Scientist Award.',
     category: 'faculty',
   },
   {
     id: 3,
-    name: '王博士',
-    title: '助理教授',
+    name: 'Dr. Wang',
+    title: 'Assistant Professor',
     avatar: '/images/researcher2.jpg',
     email: 'researcher2@lab.edu',
     website: 'https://example.com/researcher2',
-    education: 'UCB博士，电子工程',
-    research: '低可见场景感知，计算摄像学',
-    bio: '王博士专注于低可见场景感知和计算摄像学研究，在恶劣环境下的视觉感知方面有丰富经验，曾参与多个国际合作项目。',
+    education: 'PhD in Electrical Engineering, UC Berkeley',
+    research: 'Low-visibility Scene Perception, Computational Imaging',
+    bio: 'Dr. Wang focuses on low-visibility scene perception and computational imaging research. He has extensive experience in visual perception in adverse environments and has participated in multiple international collaboration projects.',
     category: 'faculty',
   },
   
-  // 研究人员
+  // Researchers
   {
     id: 4,
-    name: '陈研究员',
-    title: '博士后研究员',
+    name: 'Dr. Chen',
+    title: 'Postdoctoral Researcher',
     avatar: '/images/postdoc1.jpg',
     email: 'postdoc1@lab.edu',
     website: 'https://example.com/postdoc1',
-    education: '清华大学博士，计算机科学',
-    research: '神经网络压缩，边缘计算',
-    bio: '陈研究员主要从事神经网络压缩和边缘计算研究，开发了多个轻量级深度学习模型，适用于资源受限的设备。',
+    education: 'PhD in Computer Science, Tsinghua University',
+    research: 'Neural Network Compression, Edge Computing',
+    bio: 'Dr. Chen primarily works on neural network compression and edge computing research. He has developed multiple lightweight deep learning models suitable for resource-constrained devices.',
     category: 'researcher',
   },
   {
     id: 5,
-    name: '黄研究员',
-    title: '博士后研究员',
+    name: 'Dr. Huang',
+    title: 'Postdoctoral Researcher',
     avatar: '/images/postdoc2.jpg',
     email: 'postdoc2@lab.edu',
     website: 'https://example.com/postdoc2',
-    education: '北京大学博士，人工智能',
-    research: '强化学习，自动驾驶决策',
-    bio: '黄研究员专注于强化学习和自动驾驶决策系统研究，设计了多个高效的决策算法，在国际比赛中获得多个奖项。',
+    education: 'PhD in Artificial Intelligence, Peking University',
+    research: 'Reinforcement Learning, Autonomous Driving Decision-making',
+    bio: 'Dr. Huang focuses on reinforcement learning and autonomous driving decision systems research. He has designed multiple efficient decision-making algorithms and has won numerous awards in international competitions.',
     category: 'researcher',
   },
   
-  // 学生
+  // Students
   {
     id: 6,
-    name: '刘同学',
-    title: '博士研究生',
+    name: 'Liu',
+    title: 'PhD Student',
     avatar: '/images/student1.jpg',
     email: 'student1@lab.edu',
     website: '',
-    education: '本实验室在读博士生',
-    research: '深度学习，目标检测',
-    bio: '刘同学正在研究基于深度学习的目标检测算法，特别关注小目标和遮挡情况下的检测性能优化。',
+    education: 'PhD Candidate in our laboratory',
+    research: 'Deep Learning, Object Detection',
+    bio: 'Liu is researching deep learning-based object detection algorithms, with a particular focus on optimizing detection performance for small objects and occlusion scenarios.',
     category: 'student',
   },
   {
     id: 7,
-    name: '赵同学',
-    title: '博士研究生',
+    name: 'Zhao',
+    title: 'PhD Student',
     avatar: '/images/student2.jpg',
     email: 'student2@lab.edu',
     website: '',
-    education: '本实验室在读博士生',
-    research: '3D点云处理，场景理解',
-    bio: '赵同学专注于3D点云处理和场景理解研究，开发了高效的点云分割和识别算法。',
+    education: 'PhD Candidate in our laboratory',
+    research: '3D Point Cloud Processing, Scene Understanding',
+    bio: 'Zhao focuses on 3D point cloud processing and scene understanding research, developing efficient point cloud segmentation and recognition algorithms.',
     category: 'student',
   },
   {
     id: 8,
-    name: '杨同学',
-    title: '硕士研究生',
+    name: 'Yang',
+    title: 'Master\'s Student',
     avatar: '/images/student3.jpg',
     email: 'student3@lab.edu',
     website: '',
-    education: '本实验室在读硕士生',
-    research: '多模态学习，视频分析',
-    bio: '杨同学研究多模态学习和视频分析，设计了结合视觉和语言信息的视频理解模型。',
+    education: 'Master\'s Student in our laboratory',
+    research: 'Multi-modal Learning, Video Analysis',
+    bio: 'Yang researches multi-modal learning and video analysis, designing video understanding models that combine visual and language information.',
     category: 'student',
   },
   {
     id: 9,
-    name: '孙同学',
-    title: '硕士研究生',
+    name: 'Sun',
+    title: 'Master\'s Student',
     avatar: '/images/student4.jpg',
     email: 'student4@lab.edu',
     website: '',
-    education: '本实验室在读硕士生',
-    research: '自监督学习，图像分割',
-    bio: '孙同学主要研究自监督学习方法在图像分割任务中的应用，减少对大量标注数据的依赖。',
+    education: 'Master\'s Student in our laboratory',
+    research: 'Self-supervised Learning, Image Segmentation',
+    bio: 'Sun mainly researches self-supervised learning methods applied to image segmentation tasks, reducing dependence on large amounts of annotated data.',
     category: 'student',
   },
 ];
 
 export default function TeamSection() {
-  // 将团队成员按类别分组
+  // Group team members by category
   const faculty = teamMembers.filter(member => member.category === 'faculty');
   const researchers = teamMembers.filter(member => member.category === 'researcher');
   const students = teamMembers.filter(member => member.category === 'student');
 
   return (
     <>
-      {/* 教授 */}
+      {/* Professors */}
       <section className="mb-20">
-        <h2 className="text-3xl font-bold mb-10 text-center">教授</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center">Professors</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {faculty.map(member => (
             <TeamMemberCard key={member.id} member={member} />
@@ -137,9 +137,9 @@ export default function TeamSection() {
         </div>
       </section>
       
-      {/* 研究人员 */}
+      {/* Researchers */}
       <section className="mb-20">
-        <h2 className="text-3xl font-bold mb-10 text-center">研究人员</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center">Researchers</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {researchers.map(member => (
             <TeamMemberCard key={member.id} member={member} />
@@ -147,9 +147,9 @@ export default function TeamSection() {
         </div>
       </section>
       
-      {/* 学生 */}
+      {/* Students */}
       <section>
-        <h2 className="text-3xl font-bold mb-10 text-center">学生</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center">Students</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {students.map(member => (
             <TeamMemberCard key={member.id} member={member} />

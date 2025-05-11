@@ -6,26 +6,26 @@ import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// 示例研究方向数据
+// Sample research areas data
 const researchAreas = [
   {
     id: 1,
-    title: '智能交通',
-    description: '利用人工智能和大数据分析优化交通流量，提高道路安全性和效率。',
+    title: 'Intelligent Transportation',
+    description: 'Using artificial intelligence and big data analysis to optimize traffic flow and improve road safety and efficiency.',
     image: '/images/research-1.jpg',
     slug: 'intelligent-transportation',
   },
   {
     id: 2,
-    title: '多传感器融合',
-    description: '通过集成多种传感器数据，提高环境感知能力和系统鲁棒性。',
+    title: 'Multi-sensor Fusion',
+    description: 'Integrating data from multiple sensors to enhance environmental perception capabilities and system robustness.',
     image: '/images/research-2.jpg',
     slug: 'multi-sensor-fusion',
   },
   {
     id: 3,
-    title: '低可见场景感知',
-    description: '解决在雨、雾、雪等恶劣天气条件下的环境感知挑战。',
+    title: 'Low-visibility Scene Perception',
+    description: 'Addressing environmental perception challenges in adverse weather conditions such as rain, fog, and snow.',
     image: '/images/research-3.jpg',
     slug: 'low-visibility-perception',
   },
@@ -48,7 +48,7 @@ export default function ResearchHighlights() {
           transition={{ duration: 0.5 }}
           className="section-title"
         >
-          研究方向
+          Research Areas
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ export default function ResearchHighlights() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl text-gray-300 max-w-3xl mx-auto"
         >
-          我们的团队在以下领域进行尖端科研，推动技术发展和创新应用
+          Our team conducts cutting-edge research in the following areas, driving technological advancement and innovative applications
         </motion.p>
       </div>
 
@@ -98,7 +98,7 @@ export default function ResearchHighlights() {
               href={`/research/${area.slug}`}
               className="text-primary hover:text-blue-400 font-medium inline-flex items-center"
             >
-              了解更多
+              Learn More
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform"
@@ -123,7 +123,7 @@ export default function ResearchHighlights() {
           href="/research"
           className="btn-primary inline-block"
         >
-          查看全部研究方向
+          View All Research Areas
         </Link>
       </div>
     </section>

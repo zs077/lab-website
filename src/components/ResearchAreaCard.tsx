@@ -55,7 +55,7 @@ export default function ResearchAreaCard({ area }: ResearchAreaProps) {
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center text-primary hover:text-blue-400 transition-colors font-medium mb-4"
           >
-            {isExpanded ? '收起项目' : '查看相关项目'}
+            {isExpanded ? 'Hide Projects' : 'View Related Projects'}
             <FiChevronRight
               className={`ml-1 transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`}
             />
@@ -82,7 +82,7 @@ export default function ResearchAreaCard({ area }: ResearchAreaProps) {
           href={`/research/${area.slug}`}
           className="btn-primary inline-block"
         >
-          了解更多
+          Learn More
         </a>
       </div>
     </motion.div>

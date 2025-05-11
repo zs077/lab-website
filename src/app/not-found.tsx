@@ -1,38 +1,38 @@
 'use client';
 
 import Link from 'next/link';
-import { FiArrowLeft, FiHome } from 'react-icons/fi';
+import { useRouter } from 'next/navigation';
 
-// 客户端组件不能导出metadata
-// export const metadata: Metadata = {
-//   title: '页面未找到 | 科研实验室',
+// Client components cannot export metadata
+// export const metadata = {
+//   title: 'Page Not Found | Research Lab',
 // };
 
 export default function NotFound() {
+  const router = useRouter();
+  
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-black text-white p-4">
-      <div className="text-center max-w-md">
-        <h1 className="text-7xl font-bold text-primary mb-4">404</h1>
-        <h2 className="text-2xl font-semibold mb-6">页面未找到</h2>
-        <p className="text-gray-400 mb-8">
-          抱歉，您尝试访问的页面不存在或已被移动。
+    <div className="min-h-screen bg-black flex items-center justify-center px-4">
+      <div className="glassmorphism p-8 md:p-12 max-w-lg text-center">
+        <div className="text-7xl font-bold text-primary mb-6">404</div>
+        <h2 className="text-2xl font-semibold mb-6">Page Not Found</h2>
+        <p className="text-gray-300 mb-8">
+          Sorry, the page you are trying to access does not exist or has been moved.
         </p>
         
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link
-            href="/"
-            className="btn-primary flex items-center justify-center gap-2"
+        <div className="flex flex-col md:flex-row gap-4 justify-center">
+          <Link 
+            href="/" 
+            className="btn-primary"
           >
-            <FiHome size={18} />
-            返回首页
+            Return to Home
           </Link>
           
-          <button
-            onClick={() => window.history.back()}
-            className="px-6 py-2 rounded-md border border-white text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center gap-2"
+          <button 
+            onClick={() => router.back()}
+            className="btn-secondary"
           >
-            <FiArrowLeft size={18} />
-            返回上一页
+            Go Back
           </button>
         </div>
       </div>

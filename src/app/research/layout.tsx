@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '科研实验室 | 研究方向',
-  description: '了解我们在智能交通、多传感器融合和低可见场景感知等领域的前沿研究。',
+  title: 'Research Lab | Research Areas',
+  description: 'Learn about our cutting-edge research in intelligent transportation, multi-sensor fusion, and low-visibility scene perception.',
 };
 
 export default function ResearchLayout({

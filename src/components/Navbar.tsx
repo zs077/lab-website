@@ -9,11 +9,11 @@ import SearchBar from './SearchBar';
 import ClientWrapper from './ClientWrapper';
 
 const navLinks = [
-  { name: '首页', path: '/' },
-  { name: '研究方向', path: '/research' },
-  { name: '团队成员', path: '/team' },
-  { name: '科研成果', path: '/publications' },
-  { name: '联系我们', path: '/contact' },
+  { name: 'Home', path: '/' },
+  { name: 'Research', path: '/research' },
+  { name: 'Team', path: '/team' },
+  { name: 'Publications', path: '/publications' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
@@ -46,7 +46,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-white">
-          实验室
+          Research Lab
         </Link>
         
         {/* Desktop Navigation */}
@@ -64,12 +64,6 @@ export default function Navbar() {
           <ClientWrapper>
             <SearchBar />
           </ClientWrapper>
-          
-          <div className="ml-2 flex items-center space-x-4">
-            <button className="text-gray-300 hover:text-white">中</button>
-            <span className="text-gray-500">|</span>
-            <button className="text-gray-500 hover:text-white">EN</button>
-          </div>
         </div>
         
         {/* Mobile Menu Button */}
@@ -104,12 +98,6 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          
-          <div className="flex justify-center space-x-6 py-2">
-            <button className="text-gray-300 hover:text-white">中</button>
-            <span className="text-gray-500">|</span>
-            <button className="text-gray-500 hover:text-white">EN</button>
-          </div>
         </div>
       </motion.div>
     </nav>

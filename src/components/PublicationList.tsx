@@ -17,14 +17,14 @@ type Publication = {
 };
 
 export default function PublicationList() {
-  // 发表论文数据
+  // Publication data
   const publications = [
     {
       id: 1,
-      title: '基于深度学习的交通场景全天候感知方法',
-      authors: '张教授, 李博士, 王博士',
+      title: 'Deep Learning-based All-weather Traffic Scene Perception',
+      authors: 'Prof. Zhang, Dr. Li, Dr. Wang',
       venue: 'IEEE Transactions on Intelligent Transportation Systems, 2023',
-      abstract: '本文提出了一种基于深度学习的交通场景全天候感知方法，能够在各种天气条件和光照环境下保持高精度的目标检测和场景理解。通过设计新型网络结构和多模态融合策略，有效提高了系统在恶劣环境下的稳定性。',
+      abstract: 'This paper presents a deep learning-based approach for all-weather traffic scene perception, capable of maintaining high-precision object detection and scene understanding under various weather conditions and lighting environments. Through novel network architecture design and multi-modal fusion strategies, the system effectively improves stability in adverse conditions.',
       link: 'https://example.com/paper1',
       pdf: 'https://example.com/paper1.pdf',
       year: 2023,
@@ -32,10 +32,10 @@ export default function PublicationList() {
     },
     {
       id: 2,
-      title: '多模态传感器融合框架在自动驾驶中的应用',
-      authors: '李博士, 张教授',
+      title: 'Multi-modal Sensor Fusion Framework for Autonomous Driving',
+      authors: 'Dr. Li, Prof. Zhang',
       venue: 'Computer Vision and Pattern Recognition (CVPR), 2022',
-      abstract: '提出了一种新型多模态传感器融合框架，用于自动驾驶环境感知。该框架能够有效集成摄像头、激光雷达和毫米波雷达数据，特别针对不同传感器在各种环境条件下的优缺点进行优化融合，提高了感知鲁棒性。',
+      abstract: 'A novel multi-modal sensor fusion framework for autonomous driving environment perception is proposed. The framework effectively integrates camera, LiDAR, and millimeter-wave radar data, with specific optimization for different sensor characteristics under various environmental conditions, enhancing perception robustness.',
       link: 'https://example.com/paper2',
       pdf: 'https://example.com/paper2.pdf',
       year: 2022,
@@ -43,10 +43,10 @@ export default function PublicationList() {
     },
     {
       id: 3,
-      title: '基于注意力机制的低可见度场景目标检测',
-      authors: '王博士, 刘同学, 张教授',
+      title: 'Attention-based Object Detection in Low-visibility Scenes',
+      authors: 'Dr. Wang, Mr. Liu, Prof. Zhang',
       venue: 'European Conference on Computer Vision (ECCV), 2022',
-      abstract: '针对雾、雨、雪等低可见度场景，提出了基于注意力机制的目标检测方法。该方法通过学习场景中的关键区域和特征，有效提高了在恶劣天气条件下的检测准确率，并降低了计算复杂度。',
+      abstract: 'An attention-based object detection method is proposed for fog, rain, and snow conditions. By learning key regions and features in scenes, the method effectively improves detection accuracy in adverse weather conditions while reducing computational complexity.',
       link: 'https://example.com/paper3',
       pdf: 'https://example.com/paper3.pdf',
       year: 2022,
@@ -54,10 +54,10 @@ export default function PublicationList() {
     },
     {
       id: 4,
-      title: '自监督对比学习在交通场景理解中的应用',
-      authors: '陈研究员, 张教授',
+      title: 'Self-supervised Contrastive Learning for Traffic Scene Understanding',
+      authors: 'Dr. Chen, Prof. Zhang',
       venue: 'International Conference on Machine Learning (ICML), 2022',
-      abstract: '提出了一种新的自监督对比学习方法，专门用于交通场景理解。该方法不依赖大量标注数据，通过设计特定的数据增强和对比损失函数，实现了高效的特征学习，在下游任务中表现出色。',
+      abstract: 'A new self-supervised contrastive learning method is proposed specifically for traffic scene understanding. Without relying on large amounts of labeled data, the method achieves efficient feature learning through specific data augmentation and contrastive loss functions, demonstrating excellent performance in downstream tasks.',
       link: 'https://example.com/paper4',
       pdf: 'https://example.com/paper4.pdf',
       year: 2022,
@@ -65,10 +65,10 @@ export default function PublicationList() {
     },
     {
       id: 5,
-      title: '轻量级神经网络设计在边缘设备中的视觉感知应用',
-      authors: '李博士, 陈研究员, 黄研究员',
+      title: 'Lightweight Neural Network Design for Edge Device Visual Perception',
+      authors: 'Dr. Li, Dr. Chen, Dr. Huang',
       venue: 'IEEE Transactions on Pattern Analysis and Machine Intelligence, 2021',
-      abstract: '研究了轻量级神经网络架构设计，专注于资源受限的边缘设备。通过创新的模型压缩和优化技术，实现了高效率的视觉感知应用，在保持准确率的同时显著降低了计算和存储需求。',
+      abstract: 'Research on lightweight neural network architecture design, focusing on resource-constrained edge devices. Through innovative model compression and optimization techniques, efficient visual perception applications are achieved while maintaining accuracy and significantly reducing computational and storage requirements.',
       link: 'https://example.com/paper5',
       pdf: 'https://example.com/paper5.pdf',
       year: 2021,
@@ -76,10 +76,10 @@ export default function PublicationList() {
     },
     {
       id: 6,
-      title: '城市交通流预测：融合时空图神经网络的方法',
-      authors: '张教授, 刘同学',
+      title: 'Urban Traffic Flow Prediction: A Spatio-temporal Graph Neural Network Approach',
+      authors: 'Prof. Zhang, Mr. Liu',
       venue: 'Transportation Research Part C: Emerging Technologies, 2021',
-      abstract: '提出了一种基于时空图神经网络的城市交通流预测方法，该方法考虑了路网拓扑结构和时间动态特性，通过建模交通流的时空依赖关系，实现了高精度的短期和长期交通流预测。',
+      abstract: 'A spatio-temporal graph neural network-based method for urban traffic flow prediction is proposed. The method considers road network topology and temporal dynamics, modeling spatio-temporal dependencies of traffic flow to achieve high-precision short-term and long-term traffic flow prediction.',
       link: 'https://example.com/paper6',
       pdf: 'https://example.com/paper6.pdf',
       year: 2021,
@@ -87,10 +87,10 @@ export default function PublicationList() {
     },
     {
       id: 7,
-      title: '基于3D点云的道路场景分割与理解',
-      authors: '赵同学, 王博士',
+      title: '3D Point Cloud-based Road Scene Segmentation and Understanding',
+      authors: 'Mr. Zhao, Dr. Wang',
       venue: 'International Conference on 3D Vision (3DV), 2021',
-      abstract: '开发了一种高效的3D点云处理方法，用于道路场景分割与理解。通过设计新型的点云特征提取模块和上下文感知分割网络，实现了对复杂道路环境的准确语义理解。',
+      abstract: 'An efficient 3D point cloud processing method is developed for road scene segmentation and understanding. Through novel point cloud feature extraction modules and context-aware segmentation networks, accurate semantic understanding of complex road environments is achieved.',
       link: 'https://example.com/paper7',
       pdf: 'https://example.com/paper7.pdf',
       year: 2021,
@@ -103,10 +103,10 @@ export default function PublicationList() {
   const [filter, setFilter] = useState<string>('all');
   const [yearFilter, setYearFilter] = useState<number | null>(null);
   
-  // 获取所有发表年份，并按降序排序
+  // Get all publication years and sort in descending order
   const years = [...new Set(publications.map(pub => pub.year))].sort((a, b) => b - a);
   
-  // 过滤并排序论文
+  // Filter and sort publications
   const filteredPublications = publications
     .filter(pub => {
       const matchesSearch = pub.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -118,7 +118,7 @@ export default function PublicationList() {
       
       return matchesSearch && matchesCategory && matchesYear;
     })
-    .sort((a, b) => b.year - a.year); // 按年份降序排序
+    .sort((a, b) => b.year - a.year); // Sort by year in descending order
   
   const toggleExpanded = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
@@ -126,13 +126,13 @@ export default function PublicationList() {
   
   return (
     <div>
-      {/* 搜索和过滤工具栏 */}
+      {/* Search and filter toolbar */}
       <div className="mb-8 flex flex-col md:flex-row gap-4 items-center">
         <div className="relative w-full md:w-1/2">
           <FiSearch className="absolute left-3 top-3 text-gray-400" />
           <input
             type="text"
-            placeholder="搜索论文标题、作者或关键词..."
+            placeholder="Search by title, authors, or keywords..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 bg-secondary/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-white"
@@ -147,9 +147,9 @@ export default function PublicationList() {
               onChange={(e) => setFilter(e.target.value)}
               className="pl-10 pr-8 py-2 bg-secondary/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-white appearance-none"
             >
-              <option value="all">所有类型</option>
-              <option value="journal">期刊论文</option>
-              <option value="conference">会议论文</option>
+              <option value="all">All Types</option>
+              <option value="journal">Journal Papers</option>
+              <option value="conference">Conference Papers</option>
             </select>
             <div className="absolute right-3 top-3 pointer-events-none">
               <FiChevronDown className="text-gray-400" />
@@ -162,7 +162,7 @@ export default function PublicationList() {
               onChange={(e) => setYearFilter(e.target.value === 'all' ? null : Number(e.target.value))}
               className="pl-4 pr-8 py-2 bg-secondary/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary text-white appearance-none"
             >
-              <option value="all">所有年份</option>
+              <option value="all">All Years</option>
               {years.map(year => (
                 <option key={year} value={year}>{year}</option>
               ))}
@@ -176,7 +176,7 @@ export default function PublicationList() {
       
       <div className="space-y-6">
         {filteredPublications.length === 0 ? (
-          <p className="text-center text-gray-400 py-6">没有找到匹配的论文</p>
+          <p className="text-center text-gray-400 py-6">No matching publications found</p>
         ) : (
           filteredPublications.map((pub) => (
             <motion.div
@@ -217,7 +217,7 @@ export default function PublicationList() {
                         rel="noopener noreferrer" 
                         className="text-primary hover:text-blue-400 inline-flex items-center text-sm"
                       >
-                        在线阅读
+                        Read Online
                         <FiExternalLink className="ml-1" size={14} />
                       </a>
                       
@@ -227,7 +227,7 @@ export default function PublicationList() {
                         rel="noopener noreferrer" 
                         className="text-primary hover:text-blue-400 inline-flex items-center text-sm"
                       >
-                        PDF下载
+                        Download PDF
                         <FiFileText className="ml-1" size={14} />
                       </a>
                       
@@ -235,7 +235,7 @@ export default function PublicationList() {
                         onClick={() => toggleExpanded(pub.id)}
                         className="text-gray-300 hover:text-white inline-flex items-center text-sm"
                       >
-                        {expandedId === pub.id ? '收起摘要' : '展开摘要'}
+                        {expandedId === pub.id ? 'Hide Abstract' : 'Show Abstract'}
                         {expandedId === pub.id ? (
                           <FiChevronUp className="ml-1" size={14} />
                         ) : (
@@ -252,7 +252,7 @@ export default function PublicationList() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="mt-4 ml-10 pl-4 border-l-2 border-gray-700"
+                    className="mt-4 pt-4 border-t border-gray-700"
                   >
                     <p className="text-gray-300">{pub.abstract}</p>
                   </motion.div>

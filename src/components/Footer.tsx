@@ -7,9 +7,9 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-xl font-bold mb-4">科研实验室</h3>
+            <h3 className="text-xl font-bold mb-4">Research Laboratory</h3>
             <p className="text-gray-400 mb-6">
-              致力于前沿科学研究，培养创新型人才，解决行业实际问题。
+              Dedicated to cutting-edge scientific research, cultivating innovative talents, and solving real-world industry problems.
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com" className="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
@@ -22,33 +22,33 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">快速链接</h3>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/research" className="text-gray-400 hover:text-white transition-colors">
-                  研究方向
+                  Research Areas
                 </Link>
               </li>
               <li>
                 <Link href="/team" className="text-gray-400 hover:text-white transition-colors">
-                  团队成员
+                  Team Members
                 </Link>
               </li>
               <li>
                 <Link href="/publications" className="text-gray-400 hover:text-white transition-colors">
-                  科研成果
+                  Publications
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
-                  联系我们
+                  Contact Us
                 </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">联系方式</h3>
+            <h3 className="text-xl font-bold mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-center">
                 <FiMail className="text-primary mr-2" />
@@ -58,14 +58,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <FiMapPin className="text-primary mr-2" />
-                <span className="text-gray-400">某大学某学院某楼</span>
+                <span className="text-gray-400">University Building, Department Name</span>
               </li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-          <p>© {new Date().getFullYear()} 科研实验室. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Research Laboratory. All rights reserved.</p>
         </div>
       </div>
     </footer>
