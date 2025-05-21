@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiFileText, FiExternalLink, FiChevronDown, FiChevronUp, FiSearch, FiFilter } from 'react-icons/fi';
+import { FiFileText, FiExternalLink, FiChevronDown, FiChevronUp, FiSearch, FiFilter, FiHeart } from 'react-icons/fi';
 
 type Publication = {
   id: number;
@@ -14,6 +14,7 @@ type Publication = {
   pdf: string;
   year: number;
   category: string;
+  likes: number;
 };
 
 export default function PublicationList() {
@@ -29,6 +30,7 @@ export default function PublicationList() {
       pdf: 'https://example.com/paper1.pdf',
       year: 2023,
       category: 'journal',
+      likes: 42,
     },
     {
       id: 2,
@@ -40,6 +42,7 @@ export default function PublicationList() {
       pdf: 'https://example.com/paper2.pdf',
       year: 2022,
       category: 'conference',
+      likes: 38,
     },
     {
       id: 3,
@@ -51,6 +54,7 @@ export default function PublicationList() {
       pdf: 'https://example.com/paper3.pdf',
       year: 2022,
       category: 'conference',
+      likes: 29,
     },
     {
       id: 4,
@@ -62,6 +66,7 @@ export default function PublicationList() {
       pdf: 'https://example.com/paper4.pdf',
       year: 2022,
       category: 'conference',
+      likes: 35,
     },
     {
       id: 5,
@@ -73,6 +78,7 @@ export default function PublicationList() {
       pdf: 'https://example.com/paper5.pdf',
       year: 2021,
       category: 'journal',
+      likes: 27,
     },
     {
       id: 6,
@@ -84,6 +90,7 @@ export default function PublicationList() {
       pdf: 'https://example.com/paper6.pdf',
       year: 2021,
       category: 'journal',
+      likes: 31,
     },
     {
       id: 7,
@@ -95,6 +102,7 @@ export default function PublicationList() {
       pdf: 'https://example.com/paper7.pdf',
       year: 2021,
       category: 'conference',
+      likes: 24,
     },
   ];
 
@@ -102,6 +110,9 @@ export default function PublicationList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState<string>('all');
   const [yearFilter, setYearFilter] = useState<number | null>(null);
+  const [likedPublications, setLikedPublications] = useState<Set<number>>(new Set());
+  const [publicationLikes, setPublicationLikes] = useState<{[key: number]: number}>({});
+  const [isLoading, setIsLoading] = useState(true);
   
   // Get all publication years and sort in descending order
   const years = [...new Set(publications.map(pub => pub.year))].sort((a, b) => b - a);
@@ -122,6 +133,62 @@ export default function PublicationList() {
   
   const toggleExpanded = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
+  };
+
+  // 从API获取喜欢数据
+  useEffect(() => {
+    const fetchLikes = async () => {
+      try {
+        const response = await fetch('/api/publications/likes');
+        const data = await response.json();
+        setPublicationLikes(data);
+      } catch (error) {
+        console.error('Error fetching likes:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchLikes();
+  }, []);
+
+  const handleLike = async (id: number) => {
+    const isCurrentlyLiked = likedPublications.has(id);
+    const action = isCurrentlyLiked ? 'unlike' : 'like';
+
+    try {
+      const response = await fetch('/api/publications/likes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          publicationId: id,
+          action: action,
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setPublicationLikes(prev => ({
+          ...prev,
+          [id]: data.likes
+        }));
+
+        setLikedPublications(prev => {
+          const newLiked = new Set(prev);
+          if (isCurrentlyLiked) {
+            newLiked.delete(id);
+          } else {
+            newLiked.add(id);
+          }
+          return newLiked;
+        });
+      }
+    } catch (error) {
+      console.error('Error updating like:', error);
+    }
   };
   
   return (
@@ -210,7 +277,7 @@ export default function PublicationList() {
                       {pub.venue}
                     </p>
                     
-                    <div className="flex flex-wrap items-center gap-4">
+                    <div className="flex items-center space-x-4">
                       <a 
                         href={pub.link} 
                         target="_blank" 
@@ -241,6 +308,22 @@ export default function PublicationList() {
                         ) : (
                           <FiChevronDown className="ml-1" size={14} />
                         )}
+                      </button>
+
+                      <button
+                        onClick={() => handleLike(pub.id)}
+                        disabled={isLoading}
+                        className={`inline-flex items-center text-sm transition-colors ${
+                          likedPublications.has(pub.id) 
+                            ? 'text-red-500 hover:text-red-400' 
+                            : 'text-gray-300 hover:text-red-500'
+                        } ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      >
+                        <FiHeart className="mr-1" size={14} />
+                        {likedPublications.has(pub.id) ? 'Liked' : 'Like'}
+                        <span className="ml-1 text-xs bg-gray-700 px-2 py-0.5 rounded-full">
+                          {isLoading ? '...' : publicationLikes[pub.id] || 0}
+                        </span>
                       </button>
                     </div>
                   </div>
