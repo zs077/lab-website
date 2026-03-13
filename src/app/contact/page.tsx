@@ -1,14 +1,10 @@
-import dynamic from 'next/dynamic';
-import Loading from '@/components/Loading';
-import { FiMail, FiMapPin, FiPhone, FiGithub, FiLinkedin } from 'react-icons/fi';
-import type { Metadata } from 'next';
-import ClientWrapper from '@/components/ClientWrapper';
+'use client';
 
-// 启用元数据导出
-export const metadata: Metadata = {
-  title: '科研实验室 | 联系我们',
-  description: '欢迎联系我们的实验室，了解更多研究合作和学习机会。',
-};
+import dynamic from 'next/dynamic';
+import { useTranslation } from 'react-i18next';
+import Loading from '@/components/Loading';
+import { FiMail, FiMapPin, FiPhone, FiUser } from 'react-icons/fi';
+import ClientWrapper from '@/components/ClientWrapper';
 
 // 动态导入客户端组件
 const Navbar = dynamic(() => import('@/components/Navbar'), {
@@ -25,6 +21,8 @@ const ContactForm = dynamic(() => import('@/components/ContactForm'), {
 });
 
 export default function Contact() {
+  const { t } = useTranslation();
+  
   return (
     <main className="flex min-h-screen flex-col">
       <ClientWrapper>
@@ -33,11 +31,11 @@ export default function Contact() {
       
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4">
-          <h1 className="page-title mb-12">联系我们</h1>
+          <h1 className="page-title mb-12">{t('contact.title')}</h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold mb-6">联系方式</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('footer.contactInfo')}</h2>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
@@ -45,9 +43,9 @@ export default function Contact() {
                     <FiMail className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold">电子邮件</h3>
-                    <a href="mailto:contact@lab.edu" className="text-gray-300 hover:text-primary">
-                      contact@lab.edu
+                    <h3 className="text-lg font-semibold">{t('contact.info.email')}</h3>
+                    <a href="mailto:liangci321@hit.edu.cn" className="text-gray-300 hover:text-primary">
+                      liangci321@hit.edu.cn
                     </a>
                   </div>
                 </div>
@@ -57,9 +55,9 @@ export default function Contact() {
                     <FiMapPin className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold">地址</h3>
+                    <h3 className="text-lg font-semibold">{t('contact.info.address')}</h3>
                     <p className="text-gray-300">
-                      某大学某学院某楼
+                      {t('footer.address')}
                     </p>
                   </div>
                 </div>
@@ -69,27 +67,26 @@ export default function Contact() {
                     <FiPhone className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold">电话</h3>
-                    <p className="text-gray-300">+123 456 7890</p>
+                    <h3 className="text-lg font-semibold">{t('contact.info.phone')}</h3>
+                    <p className="text-gray-300">13811187674</p>
                   </div>
                 </div>
               </div>
               
               <div className="mt-10">
-                <h2 className="text-2xl font-bold mb-6">关注我们</h2>
+                <h2 className="text-2xl font-bold mb-6">
+                  {t('common.viewMore')}
+                </h2>
                 <div className="flex space-x-4">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-secondary p-3 rounded-lg hover:bg-primary/20 transition-colors">
-                    <FiGithub size={24} />
-                  </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-secondary p-3 rounded-lg hover:bg-primary/20 transition-colors">
-                    <FiLinkedin size={24} />
+                  <a href="https://homepage.hit.edu.cn/liangci?lang=zh" target="_blank" rel="noopener noreferrer" className="bg-secondary p-3 rounded-lg hover:bg-primary/20 transition-colors" aria-label="Teacher Homepage">
+                    <FiUser size={24} />
                   </a>
                 </div>
               </div>
             </div>
             
             <div>
-              <h2 className="text-2xl font-bold mb-6">发送消息</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('contact.form.send')}</h2>
               <ClientWrapper>
                 <ContactForm />
               </ClientWrapper>
@@ -103,4 +100,4 @@ export default function Contact() {
       </ClientWrapper>
     </main>
   );
-} 
+}

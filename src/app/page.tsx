@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { useTranslation } from 'react-i18next';
 import Loading from '@/components/Loading';
 import ClientWrapper from '@/components/ClientWrapper';
 
@@ -33,13 +36,9 @@ const PublicationsPreview = dynamic(() => import('@/components/PublicationsPrevi
   ssr: false
 });
 
-// 设置页面元数据
-export const metadata = {
-  title: '科研实验室 | 首页',
-  description: '欢迎访问我们的科研实验室官方网站，了解我们的研究方向、团队成员和最新成果。',
-};
-
-export default function Home() {
+function HomeContent() {
+  const { t } = useTranslation();
+  
   return (
     <main className="flex min-h-screen flex-col">
       {/* 使用ClientWrapper包装所有带有交互的组件 */}
@@ -69,13 +68,13 @@ export default function Home() {
         </div>
         
         <div className="my-24 text-center">
-          <h2 className="section-title">联系我们</h2>
-          <p className="text-xl mb-8">有任何问题或合作意向，欢迎随时联系我们</p>
+          <h2 className="section-title">{t('contact.title')}</h2>
+          <p className="text-xl mb-8">{t('contact.subtitle')}</p>
           <Link 
             href="/contact" 
             className="btn-primary inline-block"
           >
-            了解更多
+            {t('common.viewMore')}
           </Link>
         </div>
       </div>
@@ -85,4 +84,8 @@ export default function Home() {
       </ClientWrapper>
     </main>
   );
-} 
+}
+
+export default function Home() {
+  return <HomeContent />;
+}

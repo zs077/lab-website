@@ -5,21 +5,23 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 import SearchBar from './SearchBar';
 import ClientWrapper from './ClientWrapper';
 
 const navLinks = [
-  { name: '首页', path: '/' },
-  { name: '研究方向', path: '/research' },
-  { name: '团队成员', path: '/team' },
-  { name: '科研成果', path: '/publications' },
-  { name: '联系我们', path: '/contact' },
+  { name: 'nav.home', path: '/' },
+  { name: 'nav.research', path: '/research' },
+  { name: 'nav.team', path: '/team' },
+  { name: 'nav.publications', path: '/publications' },
+  { name: 'nav.contact', path: '/contact' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { t, i18n } = useTranslation();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +38,10 @@ export default function Navbar() {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
   };
 
   return (
@@ -57,7 +63,7 @@ export default function Navbar() {
               href={link.path}
               className={`nav-link ${pathname === link.path ? 'text-primary font-medium' : ''}`}
             >
-              {link.name}
+              {t(link.name)}
             </Link>
           ))}
           
@@ -66,9 +72,19 @@ export default function Navbar() {
           </ClientWrapper>
           
           <div className="ml-2 flex items-center space-x-4">
-            <button className="text-gray-300 hover:text-white">中</button>
+            <button 
+              onClick={() => changeLanguage('zh')}
+              className={`${i18n.language === 'zh' ? 'text-white' : 'text-gray-300'} hover:text-white transition-colors`}
+            >
+              中
+            </button>
             <span className="text-gray-500">|</span>
-            <button className="text-gray-500 hover:text-white">EN</button>
+            <button 
+              onClick={() => changeLanguage('en')}
+              className={`${i18n.language === 'en' ? 'text-white' : 'text-gray-300'} hover:text-white transition-colors`}
+            >
+              EN
+            </button>
           </div>
         </div>
         
@@ -101,14 +117,24 @@ export default function Navbar() {
               className={`py-2 text-center ${pathname === link.path ? 'text-primary font-medium' : 'text-gray-300'}`}
               onClick={() => setIsOpen(false)}
             >
-              {link.name}
+              {t(link.name)}
             </Link>
           ))}
           
           <div className="flex justify-center space-x-6 py-2">
-            <button className="text-gray-300 hover:text-white">中</button>
+            <button 
+              onClick={() => changeLanguage('zh')}
+              className={`${i18n.language === 'zh' ? 'text-white' : 'text-gray-300'} hover:text-white transition-colors`}
+            >
+              中
+            </button>
             <span className="text-gray-500">|</span>
-            <button className="text-gray-500 hover:text-white">EN</button>
+            <button 
+              onClick={() => changeLanguage('en')}
+              className={`${i18n.language === 'en' ? 'text-white' : 'text-gray-300'} hover:text-white transition-colors`}
+            >
+              EN
+            </button>
           </div>
         </div>
       </motion.div>

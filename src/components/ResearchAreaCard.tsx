@@ -4,27 +4,24 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiImage } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
+import type { ResearchArea } from '@/data/research';
 
-type ResearchAreaProps = {
-  area: {
-    id: number;
-    title: string;
-    description: string;
-    image: string;
-    projects: string[];
-    slug: string;
-  };
+type Props = {
+  area: ResearchArea;
+  lang: 'zh' | 'en';
 };
 
-export default function ResearchAreaCard({ area }: ResearchAreaProps) {
+export default function ResearchAreaCard({ area, lang }: Props) {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
-  
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   return (
     <motion.div
       ref={ref}
@@ -33,34 +30,47 @@ export default function ResearchAreaCard({ area }: ResearchAreaProps) {
       transition={{ duration: 0.7 }}
       className="flex flex-col md:flex-row md:items-start gap-8"
     >
-      <div className="md:w-1/2 overflow-hidden rounded-xl">
-        <Image
-          src={area.image}
-          alt={area.title}
-          width={800}
-          height={500}
-          className="w-full h-auto rounded-xl hover:scale-105 transition-transform duration-500"
-        />
+      {/* 左侧配图 */}
+      <div className="md:w-1/2 overflow-hidden rounded-xl bg-gray-800">
+        {area.imageSrc ? (
+          <Image
+            src={area.imageSrc}
+            alt={area.title[lang]}
+            width={800}
+            height={500}
+            className="w-full h-auto rounded-xl hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <div className="w-full aspect-video rounded-xl flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+            <FiImage size={48} className="text-gray-600" />
+          </div>
+        )}
       </div>
-      
+
+      {/* 右侧内容 */}
       <div className="md:w-1/2">
-        <h2 className="text-3xl font-bold mb-4 text-primary">{area.title}</h2>
-        
-        <p className="text-gray-300 mb-6 leading-relaxed">
-          {area.description}
-        </p>
-        
+        {/* 标题 — 随语言切换 */}
+        <h2 className="text-3xl font-bold mb-4 text-primary">{area.title[lang]}</h2>
+
+        {/* 描述 — 随语言切换 */}
+        <p className="text-gray-300 mb-6 leading-relaxed">{area.description[lang]}</p>
+
+        {/* 项目列表展开/收起 */}
         <div className="mb-6">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center text-primary hover:text-blue-400 transition-colors font-medium mb-4"
           >
-            {isExpanded ? '收起项目' : '查看相关项目'}
+            {isExpanded
+              ? t('research.hideProjects')
+              : t('research.viewProjects')}
             <FiChevronRight
-              className={`ml-1 transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`}
+              className={`ml-1 transition-transform duration-300 ${
+                isExpanded ? 'rotate-90' : ''
+              }`}
             />
           </button>
-          
+
           {isExpanded && (
             <motion.ul
               initial={{ opacity: 0, height: 0 }}
@@ -71,20 +81,20 @@ export default function ResearchAreaCard({ area }: ResearchAreaProps) {
             >
               {area.projects.map((project, index) => (
                 <li key={index} className="list-disc list-outside">
-                  {project}
+                  {project[lang]}
                 </li>
               ))}
             </motion.ul>
           )}
         </div>
-        
-        <a
-          href={`/research/${area.slug}`}
-          className="btn-primary inline-block"
-        >
-          了解更多
-        </a>
+
+        {/* "了解更多"按钮 — 有链接时显示，文字随语言切换 */}
+        {area.link && (
+          <a href={area.link} className="btn-primary inline-block">
+            {t('research.learnMore')}
+          </a>
+        )}
       </div>
     </motion.div>
   );
-} 
+}

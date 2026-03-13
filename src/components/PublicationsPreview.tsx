@@ -2,50 +2,34 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { FiFileText, FiVideo, FiExternalLink } from 'react-icons/fi';
+import { FiFileText } from 'react-icons/fi';
+import { publications } from '@/data/publications';
 
-// 示例发表论文数据
-const publications = [
-  {
-    id: 1,
-    title: '基于深度学习的交通场景全天候感知方法',
-    authors: '张教授, 李博士, 王博士',
-    venue: 'IEEE Transactions on Intelligent Transportation Systems, 2023',
-    link: 'https://example.com/paper1',
-    type: 'paper',
-  },
-  {
-    id: 2,
-    title: '多模态传感器融合框架在自动驾驶中的应用',
-    authors: '李博士, 张教授',
-    venue: 'Computer Vision and Pattern Recognition (CVPR), 2022',
-    link: 'https://example.com/paper2',
-    type: 'paper',
-  },
-  {
-    id: 3,
-    title: '基于注意力机制的低可见度场景目标检测',
-    authors: '王博士, 刘同学, 张教授',
-    venue: 'European Conference on Computer Vision (ECCV), 2022',
-    link: 'https://example.com/paper3',
-    type: 'paper',
-  },
-  {
-    id: 4,
-    title: '全天候自动驾驶感知系统演示',
-    authors: '张教授团队',
-    venue: '人工智能与机器人大会演示, 2023',
-    link: 'https://youtu.be/example1',
-    type: 'video',
-  },
-];
+// ============================================================
+// 📌 主页论文预览组件
+//
+// 自动从 src/data/publications.ts 读取前 4 篇论文
+// 按年份降序排列后取前 N 篇
+// 如需修改显示数量，改下方的 previewCount 变量即可
+// ============================================================
 
 export default function PublicationsPreview() {
+  const { t, i18n } = useTranslation();
+  const lang: 'zh' | 'en' = i18n.language?.startsWith('zh') ? 'zh' : 'en';
+  
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // 显示数量（修改此数字可改变主页显示的论文数）
+  const previewCount = 4;
+
+  // 按年份降序排列，取前 N 篇
+  const sortedPublications = [...publications].sort((a, b) => b.year - a.year);
+  const previewPublications = sortedPublications.slice(0, previewCount);
 
   return (
     <section ref={ref} className="py-16">
@@ -56,7 +40,7 @@ export default function PublicationsPreview() {
           transition={{ duration: 0.5 }}
           className="section-title"
         >
-          科研成果
+          {t('publications.title')}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -64,12 +48,12 @@ export default function PublicationsPreview() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl text-gray-300 max-w-3xl mx-auto"
         >
-          我们在顶级期刊和会议发表的最新研究成果
+          {t('publications.subtitle')}
         </motion.p>
       </div>
 
       <div className="space-y-6">
-        {publications.map((pub, index) => (
+        {previewPublications.map((pub, index) => (
           <motion.div
             key={pub.id}
             initial={{ opacity: 0, y: 30 }}
@@ -79,49 +63,36 @@ export default function PublicationsPreview() {
           >
             <div className="flex items-start">
               <div className="flex-shrink-0 mt-1">
-                {pub.type === 'paper' ? (
-                  <FiFileText className="text-primary" size={24} />
-                ) : (
-                  <FiVideo className="text-primary" size={24} />
-                )}
+                <FiFileText className="text-primary" size={24} />
               </div>
-              
-              <div className="ml-4">
-                <h3 className="text-xl font-semibold mb-2 hover:text-primary transition-colors">
-                  {pub.title}
-                </h3>
-                
-                <p className="text-gray-300 mb-1">
-                  {pub.authors}
-                </p>
-                
-                <p className="text-gray-400 text-sm mb-3">
-                  {pub.venue}
-                </p>
-                
-                <a 
-                  href={pub.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-primary hover:text-blue-400 inline-flex items-center text-sm"
-                >
-                  查看详情
-                  <FiExternalLink className="ml-1" size={14} />
-                </a>
+
+              <div className="ml-4 flex-grow">
+                {/* 标题 + 年份徽章 */}
+                <div className="flex justify-between items-start">
+                  <h3 className="text-xl font-semibold mb-2 hover:text-primary transition-colors">
+                    {pub.title}
+                  </h3>
+                  <span className="ml-2 text-sm bg-primary/20 text-primary px-2 py-1 rounded-md whitespace-nowrap">
+                    {pub.year}
+                  </span>
+                </div>
+
+                {/* 作者 */}
+                <p className="text-gray-300 mb-1">{pub.authors}</p>
+
+                {/* 期刊/会议 */}
+                <p className="text-gray-400 text-sm">{pub.venue}</p>
               </div>
             </div>
           </motion.div>
         ))}
       </div>
-      
+
       <div className="text-center mt-12">
-        <Link
-          href="/publications"
-          className="btn-primary inline-block"
-        >
-          查看全部科研成果
+        <Link href="/publications" className="btn-primary inline-block">
+          {t('common.viewMore')}
         </Link>
       </div>
     </section>
   );
-} 
+}

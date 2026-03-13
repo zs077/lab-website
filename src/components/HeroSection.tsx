@@ -3,9 +3,11 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -35,7 +37,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white"
         >
-          科研实验室
+          {t('hero.title')}
         </motion.h1>
         
         <motion.p
@@ -44,7 +46,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-8"
         >
-          探索未知，创新科技，引领未来
+          {t('hero.subtitle')}
         </motion.p>
         
         <motion.div
@@ -57,13 +59,13 @@ export default function HeroSection() {
             href="#research"
             className="btn-primary"
           >
-            了解研究方向
+            {t('hero.learnMore')}
           </a>
           <a
             href="/contact"
             className="px-6 py-2 rounded-md border border-white text-white hover:bg-white hover:text-black transition-all duration-300"
           >
-            联系我们
+            {t('hero.contactUs')}
           </a>
         </motion.div>
       </div>

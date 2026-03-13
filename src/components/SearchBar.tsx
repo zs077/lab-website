@@ -2,13 +2,16 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import { FiSearch, FiX } from 'react-icons/fi';
 
 // 定义搜索结果类型
 type SearchResult = {
   id: string;
   title: string;
+  titleEn: string;
   description: string;
+  descriptionEn: string;
   url: string;
   category: 'research' | 'team' | 'publication' | 'page';
 };
@@ -18,34 +21,43 @@ const mockSearchResults: SearchResult[] = [
   {
     id: 'research-1',
     title: '智能交通',
+    titleEn: 'Intelligent Transportation',
     description: '利用人工智能和大数据分析优化交通流量，提高道路安全性和效率。',
+    descriptionEn: 'Optimizing traffic flow and improving road safety using AI and big data analytics.',
     url: '/research/intelligent-transportation',
     category: 'research',
   },
   {
     id: 'research-2',
     title: '多传感器融合',
+    titleEn: 'Multi-Sensor Fusion',
     description: '通过集成多种传感器数据，提高环境感知能力和系统鲁棒性。',
+    descriptionEn: 'Enhancing environmental perception by integrating multiple sensor data.',
     url: '/research/multi-sensor-fusion',
     category: 'research',
   },
   {
     id: 'team-1',
     title: '张教授',
+    titleEn: 'Prof. Zhang',
     description: '教授，博士生导师，专注于智能交通系统和计算机视觉研究。',
+    descriptionEn: 'Professor, PhD Supervisor, focusing on intelligent transportation and computer vision.',
     url: '/team#professor',
     category: 'team',
   },
   {
     id: 'pub-1',
     title: '基于深度学习的交通场景全天候感知方法',
+    titleEn: 'All-Weather Perception Method for Traffic Scenes Based on Deep Learning',
     description: 'IEEE Transactions on Intelligent Transportation Systems, 2023',
+    descriptionEn: 'IEEE Transactions on Intelligent Transportation Systems, 2023',
     url: '/publications#paper-1',
     category: 'publication',
   },
 ];
 
 export default function SearchBar() {
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -68,10 +80,12 @@ export default function SearchBar() {
     // 模拟API搜索延迟
     setTimeout(() => {
       // 过滤搜索结果
-      const filtered = mockSearchResults.filter(result => 
-        result.title.toLowerCase().includes(term.toLowerCase()) || 
-        result.description.toLowerCase().includes(term.toLowerCase())
-      );
+      const filtered = mockSearchResults.filter(result => {
+        const title = i18n.language === 'zh' ? result.title : result.titleEn;
+        const description = i18n.language === 'zh' ? result.description : result.descriptionEn;
+        return title.toLowerCase().includes(term.toLowerCase()) || 
+               description.toLowerCase().includes(term.toLowerCase());
+      });
       
       setResults(filtered);
       setIsLoading(false);
@@ -120,6 +134,20 @@ export default function SearchBar() {
       window.removeEventListener('keydown', handleEsc);
     };
   }, []);
+
+  const getCategoryLabel = (category: string) => {
+    if (i18n.language === 'zh') {
+      return category === 'research' ? '研究方向' : 
+             category === 'team' ? '团队成员' : '科研成果';
+    } else {
+      return category === 'research' ? 'Research' : 
+             category === 'team' ? 'Team' : 'Publication';
+    }
+  };
+
+  const quickSearchTerms = i18n.language === 'zh' 
+    ? ['智能交通', '多传感器融合', '张教授', '李博士', '深度学习']
+    : ['Transportation', 'Sensor Fusion', 'Prof. Zhang', 'Dr. Li', 'Deep Learning'];
   
   return (
     <div className="relative" ref={searchRef}>
@@ -127,10 +155,10 @@ export default function SearchBar() {
       <button
         onClick={() => setIsOpen(true)}
         className="flex items-center gap-2 py-2 px-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-colors"
-        aria-label="搜索"
+        aria-label={t('common.search')}
       >
         <FiSearch size={18} />
-        <span className="text-sm hidden md:inline">搜索</span>
+        <span className="text-sm hidden md:inline">{t('common.search')}</span>
       </button>
       
       {/* 搜索模态框 */}
@@ -143,7 +171,7 @@ export default function SearchBar() {
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="搜索研究方向、团队成员或科研成果..."
+                placeholder={t('publications.search')}
                 value={searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
                 className="w-full pl-12 pr-12 py-4 bg-secondary border-b border-gray-700 focus:outline-none text-white"
@@ -176,27 +204,32 @@ export default function SearchBar() {
                           result.category === 'team' ? 'bg-green-900/50 text-green-300' :
                           'bg-purple-900/50 text-purple-300'
                         }`}>
-                          {result.category === 'research' ? '研究方向' : 
-                           result.category === 'team' ? '团队成员' : '科研成果'}
+                          {getCategoryLabel(result.category)}
                         </span>
-                        <h3 className="text-white font-medium">{result.title}</h3>
+                        <h3 className="text-white font-medium">
+                          {i18n.language === 'zh' ? result.title : result.titleEn}
+                        </h3>
                       </div>
-                      <p className="text-gray-400 text-sm">{result.description}</p>
+                      <p className="text-gray-400 text-sm">
+                        {i18n.language === 'zh' ? result.description : result.descriptionEn}
+                      </p>
                     </div>
                   ))}
                 </div>
               ) : searchTerm.length >= 2 ? (
                 <div className="p-8 text-center text-gray-400">
-                  没有找到匹配的结果
+                  {i18n.language === 'zh' ? '没有找到匹配的结果' : 'No results found'}
                 </div>
               ) : null}
               
               {/* 快捷搜索提示 */}
               {searchTerm.length < 2 && (
                 <div className="p-6">
-                  <h3 className="text-gray-400 mb-4 text-sm">快速搜索</h3>
+                  <h3 className="text-gray-400 mb-4 text-sm">
+                    {i18n.language === 'zh' ? '快速搜索' : 'Quick Search'}
+                  </h3>
                   <div className="flex flex-wrap gap-2">
-                    {['智能交通', '多传感器融合', '张教授', '李博士', '深度学习'].map((term) => (
+                    {quickSearchTerms.map((term) => (
                       <button
                         key={term}
                         onClick={() => handleSearch(term)}
@@ -212,12 +245,12 @@ export default function SearchBar() {
             
             {/* 搜索提示 */}
             <div className="p-4 border-t border-gray-700 text-xs text-gray-500 flex justify-between">
-              <div>按 ESC 关闭</div>
-              <div>按 Enter 跳转到第一个结果</div>
+              <div>{i18n.language === 'zh' ? '按 ESC 关闭' : 'Press ESC to close'}</div>
+              <div>{i18n.language === 'zh' ? '按 Enter 跳转到第一个结果' : 'Press Enter to jump to first result'}</div>
             </div>
           </div>
         </div>
       )}
     </div>
   );
-} 
+}

@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
+import I18nProvider from '@/components/I18nProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="zh" className={`${inter.variable}`}>
       <body className="bg-black text-white min-h-screen">
-        {children}
+        <I18nProvider>
+          {children}
+        </I18nProvider>
       </body>
     </html>
   );

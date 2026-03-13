@@ -2,9 +2,13 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
 
+const FORMSPREE_URL = 'https://formspree.io/f/mojkeddd';
+
 export default function ContactForm() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +23,6 @@ export default function ContactForm() {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     
-    // 清除该字段的错误信息
     if (errors[name]) {
       setErrors(prev => {
         const newErrors = { ...prev };
@@ -33,21 +36,21 @@ export default function ContactForm() {
     const newErrors: Record<string, string> = {};
     
     if (!formData.name.trim()) {
-      newErrors.name = '请输入您的姓名';
+      newErrors.name = t('contact.form.nameRequired');
     }
     
     if (!formData.email.trim()) {
-      newErrors.email = '请输入您的邮箱';
+      newErrors.email = t('contact.form.emailRequired');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = '请输入有效的邮箱地址';
+      newErrors.email = t('contact.form.invalidEmail');
     }
     
     if (!formData.subject.trim()) {
-      newErrors.subject = '请输入主题';
+      newErrors.subject = t('contact.form.subjectRequired');
     }
     
     if (!formData.message.trim()) {
-      newErrors.message = '请输入消息内容';
+      newErrors.message = t('contact.form.messageRequired');
     }
     
     setErrors(newErrors);
@@ -63,19 +66,30 @@ export default function ContactForm() {
     
     setFormStatus('submitting');
     
-    // 模拟API调用
     try {
-      // 实际项目中，这里应该是一个API调用
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // 成功提交
-      setFormStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // 5秒后重置状态
-      setTimeout(() => {
-        setFormStatus('idle');
-      }, 5000);
+      const response = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => {
+          setFormStatus('idle');
+        }, 5000);
+      } else {
+        setFormStatus('error');
+      }
     } catch (error) {
       console.error('提交表单时出错:', error);
       setFormStatus('error');
@@ -87,7 +101,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="name" className="block text-white mb-2">
-            姓名 <span className="text-red-500">*</span>
+            {t('contact.form.name')} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -98,7 +112,7 @@ export default function ContactForm() {
             className={`w-full px-4 py-3 bg-secondary/50 border rounded-lg focus:outline-none focus:ring-2 ${
               errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-700 focus:ring-primary'
             }`}
-            placeholder="您的姓名"
+            placeholder={t('contact.form.namePlaceholder')}
             disabled={formStatus === 'submitting' || formStatus === 'success'}
           />
           {errors.name && (
@@ -108,7 +122,7 @@ export default function ContactForm() {
         
         <div>
           <label htmlFor="email" className="block text-white mb-2">
-            邮箱 <span className="text-red-500">*</span>
+            {t('contact.form.email')} <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -119,7 +133,7 @@ export default function ContactForm() {
             className={`w-full px-4 py-3 bg-secondary/50 border rounded-lg focus:outline-none focus:ring-2 ${
               errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-700 focus:ring-primary'
             }`}
-            placeholder="您的邮箱地址"
+            placeholder={t('contact.form.emailPlaceholder')}
             disabled={formStatus === 'submitting' || formStatus === 'success'}
           />
           {errors.email && (
@@ -129,7 +143,7 @@ export default function ContactForm() {
         
         <div>
           <label htmlFor="subject" className="block text-white mb-2">
-            主题 <span className="text-red-500">*</span>
+            {t('contact.form.subject')} <span className="text-red-500">*</span>
           </label>
           <select
             id="subject"
@@ -141,11 +155,11 @@ export default function ContactForm() {
             }`}
             disabled={formStatus === 'submitting' || formStatus === 'success'}
           >
-            <option value="">请选择主题</option>
-            <option value="合作咨询">合作咨询</option>
-            <option value="项目洽谈">项目洽谈</option>
-            <option value="招生信息">招生信息</option>
-            <option value="其他问题">其他问题</option>
+            <option value="">{t('contact.form.subjectPlaceholder')}</option>
+            <option value="cooperation">{t('contact.form.subjects.cooperation')}</option>
+            <option value="project">{t('contact.form.subjects.project')}</option>
+            <option value="admission">{t('contact.form.subjects.admission')}</option>
+            <option value="other">{t('contact.form.subjects.other')}</option>
           </select>
           {errors.subject && (
             <p className="mt-1 text-red-500 text-sm">{errors.subject}</p>
@@ -154,7 +168,7 @@ export default function ContactForm() {
         
         <div>
           <label htmlFor="message" className="block text-white mb-2">
-            消息内容 <span className="text-red-500">*</span>
+            {t('contact.form.message')} <span className="text-red-500">*</span>
           </label>
           <textarea
             id="message"
@@ -165,7 +179,7 @@ export default function ContactForm() {
             className={`w-full px-4 py-3 bg-secondary/50 border rounded-lg focus:outline-none focus:ring-2 ${
               errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-700 focus:ring-primary'
             }`}
-            placeholder="请详细描述您的问题或需求..."
+            placeholder={t('contact.form.messagePlaceholder')}
             disabled={formStatus === 'submitting' || formStatus === 'success'}
           />
           {errors.message && (
@@ -186,17 +200,17 @@ export default function ContactForm() {
             {formStatus === 'submitting' ? (
               <>
                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                <span>提交中...</span>
+                <span>{t('contact.form.sending')}</span>
               </>
             ) : formStatus === 'success' ? (
               <>
                 <FiCheck size={20} />
-                <span>提交成功!</span>
+                <span>{t('contact.form.success')}</span>
               </>
             ) : (
               <>
                 <FiSend size={20} />
-                <span>发送消息</span>
+                <span>{t('contact.form.send')}</span>
               </>
             )}
           </button>
@@ -211,13 +225,13 @@ export default function ContactForm() {
         >
           <FiAlertCircle className="text-red-500 mt-0.5" size={20} />
           <div>
-            <p className="text-white font-medium">提交失败</p>
+            <p className="text-white font-medium">{t('contact.form.error')}</p>
             <p className="text-gray-300 text-sm">
-              抱歉，提交时出现错误。请稍后再试或直接通过邮箱联系我们。
+              {t('contact.form.error')}
             </p>
           </div>
         </motion.div>
       )}
     </div>
   );
-} 
+}
