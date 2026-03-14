@@ -97,7 +97,7 @@ export const teamData: TeamData = {
   faculty: [
     {
       id: 1,
-      avatarSrc: '/images/下载.jpg',
+      avatarSrc: '/images/梁.jpg',
       email: 'liangci321@hit.edu.cn',
       personalLink: 'https://homepage.hit.edu.cn/liangci?lang=zh',
       name:          { zh: '梁茨',   en: 'Ci Liang' },

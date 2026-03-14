@@ -140,8 +140,8 @@ export const researchAreas: ResearchArea[] = [
   {
     id: 3,
     title: {
-      zh: '人机混行交通系统与人在环仿真',
-      en: 'Human-Machine Mixed Traffic Systems and Human-in-the-Loop Simulation',
+      zh: 'L4自动驾驶虚实融合测试平台',
+      en: 'L4 Autonomous Driving Virtual-Real Fusion Testing Platform',
     },
     description: {
       zh: '面向未来自动驾驶车辆与人工驾驶车辆长期共存的复杂交通形态，利用先进的驾驶模拟平台开展人在环 (Human-in-the-Loop) 仿真，深度剖析人机交互行为与混行系统的安全性。',

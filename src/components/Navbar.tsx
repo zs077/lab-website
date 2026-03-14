@@ -12,8 +12,8 @@ import ClientWrapper from './ClientWrapper';
 const navLinks = [
   { name: 'nav.home', path: '/' },
   { name: 'nav.research', path: '/research' },
-  { name: 'nav.team', path: '/team' },
   { name: 'nav.publications', path: '/publications' },
+  { name: 'nav.team', path: '/team' },
   { name: 'nav.contact', path: '/contact' },
 ];
 
