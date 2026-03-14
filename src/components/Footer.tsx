@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { FiMail, FiMapPin, FiUser } from 'react-icons/fi';
 
@@ -12,7 +13,15 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-xl font-bold mb-4">{t('footer.title')}</h3>
+            <div className="mb-4">
+              <Image
+                src="/images/logono.png"
+                alt="Lab Logo"
+                width={180}
+                height={60}
+                className="h-10 w-auto"
+              />
+            </div>
             <p className="text-gray-400 mb-6">
               {t('footer.description')}
             </p>
@@ -67,7 +76,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-          <p>© {new Date().getFullYear()} {t('footer.copyright')}</p>
+          <p>Autopilot Safety Intelligence eXtended Lab @HIT</p>
         </div>
       </div>
     </footer>

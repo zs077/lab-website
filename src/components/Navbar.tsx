@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import SearchBar from './SearchBar';
 import ClientWrapper from './ClientWrapper';
@@ -51,8 +52,15 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-white">
-          实验室
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logono.png"
+            alt="Lab Logo"
+            width={180}
+            height={60}
+            className="h-12 w-auto"
+            priority
+          />
         </Link>
         
         {/* Desktop Navigation */}

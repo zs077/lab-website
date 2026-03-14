@@ -1,10 +1,8 @@
 'use client';
 
-import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
-import Image from 'next/image';
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -14,21 +12,7 @@ export default function HeroSection() {
   });
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* 背景图片 */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <div className="absolute w-full h-full">
-          <Image
-            src="/images/hero-background.jpg"
-            alt="Lab Background"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </div>
-
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-gray-900 to-secondary">
       {/* 内容 */}
       <div ref={ref} className="relative z-10 container mx-auto px-4 text-center">
         <motion.h1
@@ -82,4 +66,4 @@ export default function HeroSection() {
       </motion.div>
     </section>
   );
-} 
+}

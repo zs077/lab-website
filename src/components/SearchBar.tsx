@@ -144,10 +144,6 @@ export default function SearchBar() {
              category === 'team' ? 'Team' : 'Publication';
     }
   };
-
-  const quickSearchTerms = i18n.language === 'zh' 
-    ? ['智能交通', '多传感器融合', '张教授', '李博士', '深度学习']
-    : ['Transportation', 'Sensor Fusion', 'Prof. Zhang', 'Dr. Li', 'Deep Learning'];
   
   return (
     <div className="relative" ref={searchRef}>
@@ -220,25 +216,9 @@ export default function SearchBar() {
                 <div className="p-8 text-center text-gray-400">
                   {i18n.language === 'zh' ? '没有找到匹配的结果' : 'No results found'}
                 </div>
-              ) : null}
-              
-              {/* 快捷搜索提示 */}
-              {searchTerm.length < 2 && (
-                <div className="p-6">
-                  <h3 className="text-gray-400 mb-4 text-sm">
-                    {i18n.language === 'zh' ? '快速搜索' : 'Quick Search'}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {quickSearchTerms.map((term) => (
-                      <button
-                        key={term}
-                        onClick={() => handleSearch(term)}
-                        className="px-3 py-1 bg-white/10 hover:bg-white/20 rounded-full text-sm"
-                      >
-                        {term}
-                      </button>
-                    ))}
-                  </div>
+              ) : (
+                <div className="p-8 text-center text-gray-400">
+                  {i18n.language === 'zh' ? '请输入至少2个字符开始搜索' : 'Enter at least 2 characters to search'}
                 </div>
               )}
             </div>
