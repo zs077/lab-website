@@ -36,6 +36,11 @@ const PublicationsPreview = dynamic(() => import('@/components/PublicationsPrevi
   ssr: false
 });
 
+const VideoList = dynamic(() => import('@/components/VideoList'), {
+  loading: () => <Loading height="60vh" />,
+  ssr: false
+});
+
 function HomeContent() {
   const { t } = useTranslation();
   
@@ -51,22 +56,33 @@ function HomeContent() {
       </ClientWrapper>
       
       <div className="container mx-auto px-4 py-16">
+        {/* 研究方向 */}
         <ClientWrapper>
           <ResearchHighlights />
         </ClientWrapper>
         
+        {/* 科研成果 */}
+        <div className="my-24">
+          <ClientWrapper>
+            <PublicationsPreview />
+          </ClientWrapper>
+        </div>
+
+        {/* 演示视频 */}
+        <div className="my-24">
+          <ClientWrapper>
+            <VideoList />
+          </ClientWrapper>
+        </div>
+
+        {/* 团队成员 */}
         <div className="my-24">
           <ClientWrapper>
             <TeamPreview />
           </ClientWrapper>
         </div>
         
-        <div className="my-24">
-          <ClientWrapper>
-            <PublicationsPreview />
-          </ClientWrapper>
-        </div>
-        
+        {/* 联系我们 */}
         <div className="my-24 text-center">
           <h2 className="section-title">{t('contact.title')}</h2>
           <p className="text-xl mb-8">{t('contact.subtitle')}</p>

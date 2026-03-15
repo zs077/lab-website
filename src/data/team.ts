@@ -102,15 +102,15 @@ export const teamData: TeamData = {
       personalLink: 'https://homepage.hit.edu.cn/liangci?lang=zh',
       name:          { zh: '梁茨',   en: 'Ci Liang' },
       title:         { zh: '教授，博士生导师', en: 'Professor, Ph.D. Supervisor' },
-      researchArea:  { zh: '自动驾驶安全，智能交通系统安全，人类行为分析', en: 'Autonomous Driving Safety, ITS Safety, Human Behavior Analysis' },
+      researchArea:  { zh: '自动驾驶安全，智能交通系统安全，驾驶行为分析', en: 'Autonomous Driving Safety, ITS Safety, Driving Behavior Analysis' },
       education:     { zh: '法国交通、发展与网络科学技术研究院 (IFSTTAR) / 里尔大学，计算机科学博士', en: 'The FrenchI nstitute of Science and Technology for Transport, Development and Networks (IFSTTAR)，French National Railway Company (SNCF)/Université de Lille，Ph.D. COMPUTER SCIENCE' },
       researchDetails: {
-        zh: '主要研究领域包括自动驾驶安全、道路与铁路安全、智能交通系统（ITS）安全及人类行为分析 。在技术方法上，专注于概率与统计方法、数据科学、贝叶斯推理以及机器学习 。',
-        en: 'Focuses on Autonomous driving safety, Road/Railway safety, ITS safety, and Human behavior analysis. Technical expertise includes Probabilistic/Statistical Methods, Data Science, Bayesian Inference, and Machine Learning.',
+        zh: '主要研究领域包括自动驾驶安全、道路与铁路安全、智能交通系统（ITS）安全及驾驶行为分析 。在技术方法上，专注于概率与统计方法、数据科学、贝叶斯推理以及机器学习 。',
+        en: 'Focuses on Autonomous driving safety, Road/Railway safety, ITS safety, and Driving behavior analysis. Technical expertise includes Probabilistic/Statistical Methods, Data Science, Bayesian Inference, and Machine Learning.',
       },
       bio: {
-        zh: '梁茨教授目前就职于哈尔滨工业大学，担任教授及博士生导师 。在加入学术界前，她曾在瑞典沃尔沃汽车总部担任高级工程师，负责L4级自动驾驶系统及电动汽车动力与能源控制系统的功能安全 。她是 IEEE 高级会员 ，并于2024年入选国家交通行业高层次领军人才项目 。此外，她还在多个国际组织任职，如担任 SafeComp 研讨会主席及 SAE 国际期刊客座主编等',
-        en: 'Prof. Ci Liang is a Professor and Ph.D. Supervisor at Harbin Institute of Technology. Prior to her academic career, she worked as a Senior Engineer at Volvo Cars Headquarters in Sweden, where she was responsible for the functional safety of L4 Autonomous Driving Systems and Electric Vehicle Power & Energy control systems. She is an IEEE Senior Member and was awarded the National Transportation Leadership Talent Program in 2024. She also actively serves the international academic community, holding roles such as SafeComp Workshop Chair and Guest Editor for the SAE International Journal.',
+        zh: '梁茨教授现任职于哈尔滨工业大学，担任教授及博士生导师，国家级青年人才。曾任沃尔沃汽车瑞典总部高级工程师，担任国际自动控制联合会IFAC-TC 7.4交通系统委员会委员，计算机安全与可靠性国际会议SafeComp（工业计算机系统欧盟第7技术委员会主办）分会主席/国际项目委员等学术兼职、SAE旗舰期刊客座编辑，IEEE Senior Member。',
+        en: 'Professor Liang Ci currently serves as a Professor and Doctoral Supervisor at Harbin Institute of Technology (HIT), and is recognized as a National-level Young Talent. She previously worked as a Senior Engineer at the Volvo Cars Headquarters in Sweden.Her academic affiliations include serving as a committee member for the International Federation of Automatic Control (IFAC) TC 7.4 on Transportation Systems, and as a Session Chair and International Program Committee Member for SafeComp (the International Conference on Computer Safety, Reliability, and Security, hosted by the European Workshop on Industrial Computer Systems Technical Committee 7). Additionally, she serves as a Guest Editor for SAE flagship journals and is an IEEE Senior Member.',
       },
     },
     // ▲▲▲ 在此行上方添加新教授 ▲▲▲
@@ -239,3 +239,6 @@ export const teamData: TeamData = {
     // ▲▲▲ 在此行上方添加新学生 ▲▲▲
   ],
 };
+
+
+

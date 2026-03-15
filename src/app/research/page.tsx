@@ -19,6 +19,11 @@ const ResearchSection = dynamic(() => import('@/components/ResearchSection'), {
   ssr: false
 });
 
+const VideoList = dynamic(() => import('@/components/VideoList'), {
+  loading: () => <Loading height="40vh" />,
+  ssr: false
+});
+
 export default function Research() {
   const { t } = useTranslation();
   
@@ -40,6 +45,16 @@ export default function Research() {
       <div className="container mx-auto px-4 py-16">
         <ClientWrapper>
           <ResearchSection />
+        </ClientWrapper>
+      </div>
+
+      {/* 视频演示部分 */}
+      <div className="container mx-auto px-4 py-16">
+        <h2 className="section-title mb-8 text-center">
+          {t('videos.sectionTitle')}
+        </h2>
+        <ClientWrapper>
+          <VideoList />
         </ClientWrapper>
       </div>
       

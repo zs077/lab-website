@@ -19,13 +19,14 @@ const PublicationList = dynamic(() => import('@/components/PublicationList'), {
   ssr: false
 });
 
-const VideoList = dynamic(() => import('@/components/VideoList'), {
+const AwardList = dynamic(() => import('@/components/AwardList'), {
   loading: () => <Loading height="40vh" />,
   ssr: false
 });
 
 export default function Publications() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language?.startsWith('zh') ? 'zh' : 'en';
   
   return (
     <main className="flex min-h-screen flex-col">
@@ -35,23 +36,20 @@ export default function Publications() {
       
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4">
-          <h1 className="page-title mb-12">{t('publications.title')}</h1>
-          
+          {/* 论文列表 - 无主标题 */}
           <section className="mb-20">
-            <h2 className="section-title mb-8">
-              {t('publications.filter.journal')} & {t('publications.filter.conference')}
-            </h2>
             <ClientWrapper>
               <PublicationList />
             </ClientWrapper>
           </section>
-          
+
+          {/* 荣誉奖项版块 */}
           <section>
             <h2 className="section-title mb-8">
-              {t('common.viewMore')}
+              {lang === 'zh' ? '荣誉奖项' : 'Honors & Awards'}
             </h2>
             <ClientWrapper>
-              <VideoList />
+              <AwardList />
             </ClientWrapper>
           </section>
         </div>

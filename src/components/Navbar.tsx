@@ -52,7 +52,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center space-x-4">
           <Image
             src="/images/logono.png"
             alt="Lab Logo"
@@ -61,6 +61,11 @@ export default function Navbar() {
             className="h-12 w-auto"
             priority
           />
+          <div className="hidden lg:block border-l-2 border-primary pl-4">
+            <span className="text-white text-lg font-semibold tracking-wide">
+              Autopilot Safety Intelligence eXtended
+            </span>
+          </div>
         </Link>
         
         {/* Desktop Navigation */}

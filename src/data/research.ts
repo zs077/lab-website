@@ -82,29 +82,25 @@ export const researchAreas: ResearchArea[] = [
       en: 'Intelligent Vehicle Functions and Safety of the Intended Functionality (SOTIF)',
     },
     description: {
-      zh: '结合在沃尔沃汽车瑞典总部的丰富工业界经验，聚焦高级别自动驾驶系统的安全性。致力于研发安全、可靠、可扩展且可部署的算法与系统，推动自动驾驶技术从理论走向实际应用。',
-      en: 'Combining rich industrial experience at Volvo Cars headquarters in Sweden, focusing on the safety of high-level autonomous driving systems. Committed to developing safe, reliable, scalable, and deployable algorithms and systems, advancing autonomous driving technology from theory to practical application.',
+      zh: '融合多年的海外头部车企核心研发经验，聚焦高级别自动驾驶系统的安全性。致力于研发安全、可靠、可扩展且可部署的算法与系统，加速自动驾驶技术从理论走向实际落地。',
+      en: 'Integrating years of core R&D experience from leading overseas automotive companies, focusing on the safety of high-level autonomous driving systems. Committed to developing safe, reliable, scalable, and deployable algorithms and systems, accelerating the transition of autonomous driving technology from theory to practical implementation.',
     },
     projects: [
       {
-        zh: '基于场景的自动驾驶功能与预期功能安全 (SOTIF)',
-        en: 'Scenario-based autonomous driving functions and Safety of the Intended Functionality (SOTIF)',
+        zh: '基于场景的自动驾驶安全验证与预期功能安全 (SOTIF)',
+        en: 'Scenario-based autonomous driving safety verification and Safety of the Intended Functionality (SOTIF)',
       },
       {
         zh: '高级别自动驾驶安全保障体系建设 (国家级青年人才计划项目)',
         en: 'Construction of high-level autonomous driving safety assurance system (National Youth Talent Program)',
       },
       {
-        zh: '自动驾驶芯片安全架构与预期功能安全关键技术',
-        en: 'Safety architecture of autonomous driving chips and key technologies for SOTIF',
-      },
-      {
-        zh: '汽车行业国际标准 ISO 26262 等的特邀修订与应用',
-        en: 'Invited revision and application of international automotive standards such as ISO 26262',
-      },
+        zh: '自动驾驶系统的安全架构',
+        en: 'Safety architecture of autonomous driving systems',
+      },      
     ],
-    imageSrc: '/images/项目一.jpg', // 填写图片路径，如 '/images/research-sotif.jpg'
-    link: null,     // 填写详情页链接，如 '/research/sotif'
+    imageSrc: '/images/项目一.jpg',
+    link: null,
   },
   {
     id: 2,
@@ -134,8 +130,8 @@ export const researchAreas: ResearchArea[] = [
         en: 'Precise perception and understanding of long-tail traffic scenarios such as adverse weather',
       },
     ],
-    imageSrc: '/images/项目二.jpg', // 填写图片路径
-    link: null,     // 填写详情页链接
+    imageSrc: '/images/项目二.jpg',
+    link: null,
   },
   {
     id: 3,
@@ -149,20 +145,20 @@ export const researchAreas: ResearchArea[] = [
     },
     projects: [
       {
-        zh: '人在环模拟驾驶混行安全仿真与测试',
-        en: 'Human-in-the-loop simulation driving mixed traffic safety simulation and testing',
+        zh: '搭建L4级实车与高保真数字孪生无缝对接的融合测试平台',
+        en: 'Building an L4-level real vehicle and high-fidelity digital twin seamless integration fusion testing platform',
       },
       {
-        zh: '自动驾驶与人工驾驶车辆的博弈、交互与协同控制',
-        en: 'Game theory, interaction, and cooperative control of autonomous and human-driven vehicles',
+        zh: '开展基于"虚拟空间推演-真实路测反馈"的算法闭环验证与协同测试',
+        en: 'Conducting algorithm closed-loop verification and collaborative testing based on "virtual space simulation-real-world road testing feedback"',
       },
       {
-        zh: '面向人机混行场景的安全评估与风险预测模型',
-        en: 'Safety assessment and risk prediction models for human-machine mixed scenarios',
+        zh: '建立覆盖"数字仿真-人在环-实车测试"的全场景自动驾驶安全评估体系',
+        en: 'Establishing a comprehensive autonomous driving safety assessment system covering "digital simulation-human-in-the-loop-real vehicle testing"',
       },
     ],
-    imageSrc: '/images/项目三.png', // 填写图片路径
-    link: null,     // 填写详情页链接
+    imageSrc: '/images/项目三.png',
+    link: null,
   },
   {
     id: 4,
@@ -188,8 +184,8 @@ export const researchAreas: ResearchArea[] = [
         en: 'Learning, control, and coordination mechanisms in new intelligent transportation systems',
       },
     ],
-    imageSrc: '/images/项目四.jpg', // 填写图片路径
-    link: null,     // 填写详情页链接
+    imageSrc: '/images/项目四.jpg',
+    link: null,
   },
   // ▲▲▲ 在此行上方添加新研究方向 ▲▲▲
 ];

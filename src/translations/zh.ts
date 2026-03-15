@@ -19,7 +19,7 @@ export default {
   // 研究方向
   research: {
     title: '研究方向',
-    subtitle: '我们的团队在以下领域进行尖端科研，推动技术发展和创新应用',
+    subtitle: '自动驾驶安全，感知可靠性、决策多目标优化、难例场景生成、地-空联运',
     learnMore: '了解更多',
     viewProjects: '查看相关项目',
     hideProjects: '收起项目',

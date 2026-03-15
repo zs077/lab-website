@@ -4,7 +4,7 @@ export default {
     home: 'Home',
     research: 'Research',
     team: 'Team',
-    publications: 'Publications',
+    publications: 'Research Achievements',
     contact: 'Contact',
   },
   
@@ -19,7 +19,7 @@ export default {
   // Research
   research: {
     title: 'Research Areas',
-    subtitle: 'Our team conducts cutting-edge research in the following fields, driving technological development and innovative applications',
+    subtitle: 'Autonomous Driving Safety, Perception Reliability, Multi-Objective Decision Optimization, Corner Case Generation, Ground-Air Intermodal Transportation',
     learnMore: 'Learn More',
     viewProjects: 'View Projects',
     hideProjects: 'Hide Projects',
