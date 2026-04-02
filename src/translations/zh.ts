@@ -30,7 +30,7 @@ export default {
     personalWebsite: '个人主页',
     toggleDetails: '展开/收起详情',
     title: '团队成员',
-    subtitle: '我们的团队由顶尖科研人员组成，共同推进科学研究与技术创新',
+    subtitle: '共同推进科学研究与技术创新',
     viewAll: '查看全部团队成员',
     roles: {
       professor: '教授，博士生导师',

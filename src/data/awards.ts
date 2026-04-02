@@ -62,7 +62,7 @@ export const awards: Award[] = [
       zh: '中国学位与研究生教育学会',
       en: 'Chinese Academy of Degree and Graduate Education',
     },
-    year: 2023,
+    year: 2025,
     certificateImage: null,
   },
   {
@@ -75,7 +75,7 @@ export const awards: Award[] = [
       zh: '国际交通运输协会',
       en: 'International Transportation Association',
     },
-    year: 2023,
+    year: 2024,
     certificateImage: null,
   },
   {
@@ -88,7 +88,7 @@ export const awards: Award[] = [
       zh: '中国人工智能学会',
       en: 'Chinese Association for Artificial Intelligence',
     },
-    year: 2024,
+    year: 2025,
     certificateImage: '/images/awards/f0ba41f3e7c9ee02f4bb848b879b4e3a.jpg',
   },
   {
@@ -101,7 +101,7 @@ export const awards: Award[] = [
       zh: '中国机器人产业联盟',
       en: 'China Robot Industry Alliance',
     },
-    year: 2023,
+    year: 2025,
     certificateImage: null,
   },
   // ▲▲▲ 在此行上方添加新奖项 ▲▲▲

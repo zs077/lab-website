@@ -49,22 +49,6 @@ export type VideoItem = {
 // ▼▼▼ 在此数组中维护所有视频演示数据 ▼▼▼
 export const videos: VideoItem[] = [
   {
-    id: 1,
-    year: 2023,
-    title: {
-      en: 'All-Weather Autonomous Driving Perception System Demo',
-      zh: '全天候自动驾驶感知系统演示',
-    },
-    description: {
-      en: 'Demonstrates the all-weather autonomous driving perception system developed by our lab, maintaining stable perception performance under various adverse weather conditions. The video includes real-time detection results in rainy, foggy, and nighttime scenarios.',
-      zh: '展示我们实验室开发的全天候自动驾驶感知系统，该系统能够在各种恶劣天气条件下保持稳定的感知性能。视频包含雨天、雾天和夜间场景的实时检测结果。',
-    },
-    posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo1-poster.jpg'
-    ossSrc: null,        // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo1.mp4'
-    bilibiliId: null,    // e.g. '1xx411x7xx'
-    youtubeId: null,     // e.g. 'dQw4w9WgXcQ'
-  },
-  {
     id: 2,
     year: 2025,
     title: {
@@ -80,21 +64,6 @@ export const videos: VideoItem[] = [
     bilibiliId: null,
     youtubeId: 'JOSuxa-SUdY',
   },
-  {
-    id: 3,
-    year: 2022,
-    title: {
-      en: 'Intelligent Traffic System: Real-Time Monitoring & Analysis',
-      zh: '智能交通系统实时监控与分析演示',
-    },
-    description: {
-      en: 'Demonstrates how our intelligent transportation system monitors and analyzes urban traffic flow in real time, predicts congestion, and provides smart route planning suggestions.',
-      zh: '展示我们开发的智能交通系统如何实时监控和分析城市交通流量，预测拥堵情况，并提供智能路线规划建议。',
-    },
-    posterSrc: null,
-    ossSrc: null,
-    bilibiliId: null,
-    youtubeId: null,
-  },
+  
   // ▲▲▲ 在此行上方添加新视频 ▲▲▲
 ];

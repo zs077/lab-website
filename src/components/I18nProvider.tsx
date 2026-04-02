@@ -22,8 +22,8 @@ if (!i18n.isInitialized) {
           translation: zhTranslations,
         },
       },
-      fallbackLng: 'zh',
-      lng: 'zh',
+      fallbackLng: 'en',
+      lng: 'en',
       interpolation: {
         escapeValue: false,
       },
@@ -36,11 +36,11 @@ if (!i18n.isInitialized) {
 
 export default function I18nProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // 确保在客户端初始化
-    const savedLang = localStorage.getItem('i18nextLng');
-    if (savedLang && i18n.language !== savedLang) {
-      i18n.changeLanguage(savedLang);
+    // 默认打开站点时统一使用英文
+    if (i18n.language !== 'en') {
+      i18n.changeLanguage('en');
     }
+    localStorage.setItem('i18nextLng', 'en');
   }, []);
 
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;

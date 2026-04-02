@@ -30,7 +30,7 @@ export default {
     personalWebsite: 'Personal website',
     toggleDetails: 'Toggle details',
     title: 'Our Team',
-    subtitle: 'Our team consists of top researchers working together to advance scientific research and technological innovation',
+    subtitle: 'Working together to advance scientific research and technological innovation',
     viewAll: 'View All Team Members',
     roles: {
       professor: 'Professor, PhD Supervisor',

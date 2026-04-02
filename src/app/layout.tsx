@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh" className={`${inter.variable}`}>
+    <html lang="en" className={`${inter.variable}`}>
       <body className="bg-black text-white min-h-screen">
         <I18nProvider>
           {children}
