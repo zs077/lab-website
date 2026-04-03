@@ -158,8 +158,8 @@ export const teamData: TeamData = {
         en: 'Research focuses on safety analysis for autonomous driving and decision-making methods based on reinforcement learning. Involved in multiple research initiatives, including projects funded by the National Natural Science Foundation of China and the Natural Science Foundation of Heilongjiang Province.',
       },
       bio: {
-        zh: '在Applied Mathematical Modelling、Physica A等交通领域国内外顶级期刊及会议上发表论文6篇。授权及受理中国发明专利5项，瑞典发明专利1项。现任SafeComp（由欧洲EWICS TC7于1979年成立）分会SRToITS项目委员会成员，并获评FTTE 2025交通运输领域“未来之星”。',
-        en: 'Published 6 papers in top-tier international journals and conferences in the transportation field, such as Applied Mathematical Modelling and Physica A. Holds 5 Chinese invention patents (authorized or pending) and 1 Swedish invention patent. He is a member of the SRToITS Project Committee of SafeComp (founded by European EWICS TC7 in 1979) and was recognized as a "Future Star" in the transportation field at FTTE 2025.',
+        zh: '现任SafeComp（由欧洲EWICS TC7于1979年成立）分会SRToITS项目委员会成员，并获评FTTE 2025交通运输领域“未来之星”。',
+        en: 'He is a member of the SRToITS Project Committee of SafeComp (founded by European EWICS TC7 in 1979) and was recognized as a "Future Star" in the transportation field at FTTE 2025.',
       },
     },
     {
@@ -168,22 +168,22 @@ export const teamData: TeamData = {
       email: '', 
       personalLink: '',
       name: { zh: '吕周杭', en: 'Zhouhang Lv' }, 
-      title: { zh: '博士研究生', en: 'Ph.D. Student' },
+      title: { zh: '博士', en: 'Ph.D.' },
       researchArea: { 
         zh: '预期功能安全（SOTIF），VLA，安全分析，驾驶员模型', 
         en: 'Safety of the Intended Functionality (SOTIF), VLA, Safety Analysis, Driver Modeling' 
       },
       education: { 
-        zh: '哈尔滨工业大学，交通信息与控制工程系博士研究生', 
-        en: 'Harbin Institute of Technology, Ph.D. Student in Dept. of Traffic Information and Control Engineering' 
+        zh: '哈尔滨工业大学，交通信息与控制工程系博士生', 
+        en: 'Harbin Institute of Technology, Ph.D. student of the Department of Transportation Information and Control Engineering' 
       },
       researchDetails: {
         zh: '主要研究方向聚焦于自动驾驶系统的预期功能安全（SOTIF）、VLA、安全分析、驾驶员模型。',
         en: 'Research primarily focuses on the Safety of the Intended Functionality (SOTIF) for autonomous driving systems,  VLA, Safety Analysis, Driver Modeling.',
       },
       bio: {
-        zh: '哈尔滨工业大学交通信息与控制工程系在读博士研究生。主要致力于自动驾驶系统的前沿安全理论与模型研究。',
-        en: 'Currently a Ph.D. student in the Department of Traffic Information and Control Engineering at Harbin Institute of Technology, dedicated to cutting-edge safety theories and modeling for autonomous driving systems.',
+        zh: '获第十一届中国研究生智慧城市技术与创意设计大赛全国二等奖等，参与编制国家标准：GB/T《道路车辆系统理论过程安全分析方法》，主要致力于自动驾驶系统的前沿安全理论与模型研究。',
+        en: 'He won the National Second Prize in the 11th China Postgraduate Smart City Technology and Creative Design Competition, etc., and participated in the formulation of the national standard GB/T "Road Vehicles—System-Theoretic Process Analysis for Safety". He is mainly dedicated to cutting-edge safety theories and modeling for autonomous driving systems.',
       },
     },
     {
@@ -192,22 +192,22 @@ export const teamData: TeamData = {
       email: '',
       personalLink: '',
       name: { zh: '卢唯', en: 'Wei Lu' },
-      title: { zh: '博士研究生', en: 'Ph.D. Student' },
+      title: { zh: '博士', en: 'Ph.D.' },
       researchArea: { 
         zh: '车辆编队协同驾驶，多传感器融合，大模型算法，强化学习', 
         en: 'Cooperative Driving of Vehicle Platoons, Multi-sensor Fusion, Large Model Algorithms, Reinforcement Learning' 
       },
       education: { 
-        zh: '哈尔滨工业大学，交通信息与控制工程系博士研究生', 
-        en: 'Harbin Institute of Technology, Ph.D. Student in Dept. of Traffic Information and Control Engineering' 
+        zh: '哈尔滨工业大学，交通信息与控制工程系博士', 
+        en: 'Harbin Institute of Technology, Ph.D. student of the Department of Transportation Information and Control Engineering' 
       },
       researchDetails: {
         zh: '主要研究方向包括车辆编队协同驾驶控制技术、多传感器融合、大模型算法和强化学习。',
         en: 'Research primarily focuses on cooperative driving control technologies for vehicle platoons, multi-sensor fusion, Large Model Algorithms and Reinforcement Learning.',
       },
       bio: {
-        zh: '哈尔滨工业大学交通信息与控制工程系在读博士研究生。致力于研究基于新一代人工智能与大模型算法的自动驾驶协同与控制技术。',
-        en: 'Currently a Ph.D. student in the Department of Traffic Information and Control Engineering at Harbin Institute of Technology, dedicated to researching collaborative and control technologies for autonomous driving based on next-generation artificial intelligence and Large Model algorithms.',
+        zh: '获第十一届中国研究生智慧城市技术与创意设计大赛全国二等奖等，致力于研究基于新一代人工智能与大模型算法的自动驾驶协同与控制技术。',
+        en: 'He won the National Second Prize in the 11th China Postgraduate Smart City Technology and Creative Design Competition, etc. He is mainly dedicated to researching collaborative and control technologies for autonomous driving based on next-generation artificial intelligence and Large Model algorithms.',
       },
     },
   ],
