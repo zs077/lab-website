@@ -61,8 +61,8 @@ export default function Navbar() {
             className="h-12 w-auto"
             priority
           />
-          <div className="hidden lg:block border-l-2 border-primary pl-4">
-            <span className="text-white text-lg font-semibold tracking-wide">
+          <div className="block border-l-2 border-primary pl-2 sm:pl-3 max-w-[160px] sm:max-w-[220px] lg:max-w-none">
+            <span className="text-white text-[10px] sm:text-xs lg:text-lg font-semibold tracking-wide leading-tight break-words">
               Autopilot Safety Intelligence eXtended
             </span>
           </div>
