@@ -52,17 +52,17 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-4">
+        <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
           <Image
             src="/images/logono.png"
             alt="Lab Logo"
             width={180}
             height={60}
-            className="h-12 w-auto"
+            className="h-9 sm:h-11 lg:h-12 w-auto"
             priority
           />
-          <div className="block border-l-2 border-primary pl-2 sm:pl-3 max-w-[160px] sm:max-w-[220px] lg:max-w-none">
-            <span className="text-white text-[10px] sm:text-xs lg:text-lg font-semibold tracking-wide leading-tight break-words">
+          <div className="block border-l-2 border-primary pl-2 sm:pl-3 max-w-[220px] sm:max-w-[320px] lg:max-w-none">
+            <span className="text-white text-[9px] sm:text-[11px] lg:text-lg font-semibold tracking-tight whitespace-nowrap leading-none">
               Autopilot Safety Intelligence eXtended
             </span>
           </div>
