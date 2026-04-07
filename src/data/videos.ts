@@ -49,7 +49,39 @@ export type VideoItem = {
 // ▼▼▼ 在此数组中维护所有视频演示数据 ▼▼▼
 export const videos: VideoItem[] = [
   {
+    id: 1,
+    year: 2026,
+    title: {
+      zh: '开放世界下基于图文映射语音标注与多模态大模型的自动驾驶困难场景（corner case）目标识别与预警',
+      en: 'Target Recognition and Early Warning for Autonomous Driving Corner Cases Based on Image-Text Mapping Audio Annotation and Multimodal Large Models in Open World Scenarios',
+    },
+    description: {
+      zh: '基于图文编码与视觉语言多模态大模型实现新实例标注的语音添加，以及高危目标文本语音预警，在夜间、雨、雾、雪、异常实例等自动驾驶困难场景中表现良好。',
+      en: 'Utilizing image-text encoding and vision-language multimodal large models, this system implements voice annotation for new instances and provides text-to-speech early warnings for high-risk targets. It demonstrates strong performance in challenging autonomous driving corner cases, including nighttime, rain, fog, snow, and abnormal object encounters.',
+    },
+    posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
+    ossSrc: 'https://lab-01.oss-cn-beijing.aliyuncs.com/%E5%9C%BA%E6%99%AF%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB.mp4',
+    bilibiliId: null,
+    youtubeId: 'OoveHoq3qiU',
+  },
+  {
     id: 2,
+    year: 2026,
+    title: {
+      zh: '基于多模态大模型的无人机搜救预案系统',
+      en: 'UAV Search and Rescue Plan Generation System Based on Multimodal Large Models',
+    },
+    description: {
+      zh: '利用无人机进行灾害现场侦查，并利用无人机回传数据至指挥终端，基于视觉语言多模态大模型生成实时智能搜救预案。',
+      en: 'Utilizing UAVs for disaster site reconnaissance, this system transmits real-time data back to the command terminal to dynamically generate intelligent search and rescue plans based on vision-language multimodal large models.',
+    },
+    posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
+    ossSrc: 'https://lab-01.oss-cn-beijing.aliyuncs.com/%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%90%9C%E6%95%91%E6%BC%94%E7%A4%BA.mp4',
+    bilibiliId: null,
+    youtubeId: '00jQXgcIMXM',
+  },
+  {
+    id: 3,
     year: 2025,
     title: {
       zh: '自动驾驶STPA智能安全分析系统演示',
