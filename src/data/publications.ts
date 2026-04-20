@@ -96,6 +96,18 @@ export const publications: Publication[] = [
     },
   },
   {
+    id: 01,
+    title: 'Ontology-Enhanced STPA Method of Scenario Safety Constraint Identification for Autonomous Driving.',
+    authors: 'Ci Liang, Mingyang, Yusheng Ci',
+    venue: 'Journal of Transportation Engineering, Part A: Systems, 151(10): 04025081, 2025.',
+    year: 2025,
+    category: 'journal',
+    abstract: {
+      en: 'Hazards from complex operational scenarios bring huge challenges for autonomous driving. This study proposes the External Operational Scenario-Systems Theoretic Process Analysis (EOS-STPA) approach, which extends the scope of traditional Systems Theoretic Process Analysis (STPA) to operational scenarios. By incorporating ontology-based knowledge representation and employing a hierarchical control structure that encompasses scenario control actions with feedback loops to ensure adaptive decision-making, EOS-STPA can formalize the interaction between systems and operational scenarios. Furthermore, EOS-STPA identifies and generates formalized scenario safety constraints comprehensively while enhancing safety of the intended functionality (SOTIF) for AD. Additionally, EOS-STPA’s hierarchical control modeling facilitates efficient scenario hazard identification through structured scenario decomposition. In the context of an autonomous vehicle car-following scenario, EOS-STPA demonstrates its strong capability in formalized safety analysis. This study is a pioneering effort to extend STPA to external operational scenarios while transforming technical system perspectives into operational scenario viewpoints.,
+      zh: 'Hazards from complex operational scenarios bring huge challenges for autonomous driving. This study proposes the External Operational Scenario-Systems Theoretic Process Analysis (EOS-STPA) approach, which extends the scope of traditional Systems Theoretic Process Analysis (STPA) to operational scenarios. By incorporating ontology-based knowledge representation and employing a hierarchical control structure that encompasses scenario control actions with feedback loops to ensure adaptive decision-making, EOS-STPA can formalize the interaction between systems and operational scenarios. Furthermore, EOS-STPA identifies and generates formalized scenario safety constraints comprehensively while enhancing safety of the intended functionality (SOTIF) for AD. Additionally, EOS-STPA’s hierarchical control modeling facilitates efficient scenario hazard identification through structured scenario decomposition. In the context of an autonomous vehicle car-following scenario, EOS-STPA demonstrates its strong capability in formalized safety analysis. This study is a pioneering effort to extend STPA to external operational scenarios while transforming technical system perspectives into operational scenario viewpoints.',
+    },
+  },
+  {
     id: 5,
     title: 'A new insight on the risky behavior of motorists at railway level crossings: An observational field study.',
     authors: 'Ci Liang, Mohamed Ghazel, Olivier Cazier, El-Miloudi El-Koursi',
