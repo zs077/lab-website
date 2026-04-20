@@ -96,9 +96,9 @@ export const publications: Publication[] = [
     },
   },
   {
-    id: 01,
+    id: 16,
     title: 'Ontology-Enhanced STPA Method of Scenario Safety Constraint Identification for Autonomous Driving.',
-    authors: 'Ci Liang, Mingyang, Yusheng Ci',
+    authors: 'Ci Liang, Mingyang Zhao, Yusheng Ci',
     venue: 'Journal of Transportation Engineering, Part A: Systems, 151(10): 04025081, 2025.',
     year: 2025,
     category: 'journal',
