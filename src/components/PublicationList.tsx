@@ -1,10 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiFileText, FiChevronDown, FiChevronUp, FiSearch, FiFilter } from 'react-icons/fi';
+import {
+  FiFileText,
+  FiChevronDown,
+  FiChevronUp,
+  FiSearch,
+  FiFilter,
+  FiChevronLeft,
+  FiChevronRight,
+} from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import { publications } from '@/data/publications';
+
+const PUBLICATIONS_PER_PAGE = 7;
 
 export default function PublicationList() {
   const { t, i18n } = useTranslation();
@@ -16,6 +26,7 @@ export default function PublicationList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState<string>('all');
   const [yearFilter, setYearFilter] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // 获取所有发表年份，按降序排列
   const years = [...new Set(publications.map((pub) => pub.year))].sort((a, b) => b - a);
@@ -47,6 +58,19 @@ export default function PublicationList() {
       return matchesSearch && matchesCategory && matchesYear;
     })
     .sort((a, b) => b.year - a.year);
+
+  const totalPages = Math.ceil(filteredPublications.length / PUBLICATIONS_PER_PAGE);
+  const activePage = Math.min(currentPage, totalPages || 1);
+  const pageStart = (activePage - 1) * PUBLICATIONS_PER_PAGE;
+  const paginatedPublications = filteredPublications.slice(
+    pageStart,
+    pageStart + PUBLICATIONS_PER_PAGE
+  );
+  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, filter, yearFilter]);
 
   const toggleExpanded = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
@@ -116,7 +140,7 @@ export default function PublicationList() {
         {filteredPublications.length === 0 ? (
           <p className="text-center text-gray-400 py-6">{t('publications.noResults')}</p>
         ) : (
-          filteredPublications.map((pub) => (
+          paginatedPublications.map((pub) => (
             <motion.div
               key={pub.id}
               initial={{ opacity: 0, y: 20 }}
@@ -183,6 +207,54 @@ export default function PublicationList() {
           ))
         )}
       </div>
+
+      {totalPages > 1 && (
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-gray-400">
+            {lang === 'zh'
+              ? `第 ${activePage} / ${totalPages} 页，共 ${filteredPublications.length} 篇`
+              : `Page ${activePage} of ${totalPages}, ${filteredPublications.length} publications`}
+          </p>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setCurrentPage(Math.max(activePage - 1, 1))}
+              disabled={activePage === 1}
+              aria-label={t('common.previous')}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-700 bg-secondary/50 text-gray-300 transition-colors hover:border-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-700 disabled:hover:text-gray-300"
+            >
+              <FiChevronLeft size={18} />
+            </button>
+
+            {pageNumbers.map((page) => (
+              <button
+                key={page}
+                type="button"
+                onClick={() => setCurrentPage(page)}
+                aria-current={activePage === page ? 'page' : undefined}
+                className={`h-10 min-w-10 rounded-lg border px-3 text-sm font-medium transition-colors ${
+                  activePage === page
+                    ? 'border-primary bg-primary text-white'
+                    : 'border-gray-700 bg-secondary/50 text-gray-300 hover:border-primary hover:text-white'
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+
+            <button
+              type="button"
+              onClick={() => setCurrentPage(Math.min(activePage + 1, totalPages))}
+              disabled={activePage === totalPages}
+              aria-label={t('common.next')}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-700 bg-secondary/50 text-gray-300 transition-colors hover:border-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-700 disabled:hover:text-gray-300"
+            >
+              <FiChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
