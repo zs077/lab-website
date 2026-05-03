@@ -61,7 +61,7 @@ function HomeContent() {
           <ResearchHighlights />
         </ClientWrapper>
         
-        {/* 科研成果 */}
+        {/* 论文发表 */}
         <div className="my-24">
           <ClientWrapper>
             <PublicationsPreview />

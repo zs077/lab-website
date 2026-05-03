@@ -11,7 +11,7 @@ import { publications } from '@/data/publications';
 // 📌 主页论文预览组件
 //
 // 自动从 src/data/publications.ts 读取前 4 篇论文
-// 按年份降序排列后取前 N 篇
+// 按年份降序、同一年按 id 降序排列后取前 N 篇
 // 如需修改显示数量，改下方的 previewCount 变量即可
 // ============================================================
 
@@ -27,8 +27,10 @@ export default function PublicationsPreview() {
   // 显示数量（修改此数字可改变主页显示的论文数）
   const previewCount = 4;
 
-  // 按年份降序排列，取前 N 篇
-  const sortedPublications = [...publications].sort((a, b) => b.year - a.year);
+  // 按年份降序排列，同一年按 id 降序，取前 N 篇
+  const sortedPublications = [...publications].sort(
+    (a, b) => b.year - a.year || b.id - a.id
+  );
   const previewPublications = sortedPublications.slice(0, previewCount);
 
   return (

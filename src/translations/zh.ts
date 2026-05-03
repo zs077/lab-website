@@ -4,7 +4,8 @@ export default {
     home: '首页',
     research: '研究方向',
     team: '团队成员',
-    publications: '科研成果',
+    publications: '论文发表',
+    achievements: '科研成果',
     contact: '联系我们',
   },
   
@@ -59,11 +60,11 @@ export default {
     },
   },
   
-  // 科研成果
+  // 论文发表
   publications: {
-    title: '科研成果',
-    subtitle: '我们的最新研究成果和学术论文',
-    viewAll: '查看全部成果',
+    title: '论文发表',
+    subtitle: '团队已发表的期刊论文、会议论文与学术出版物',
+    viewAll: '查看全部论文',
     filter: {
       all: '全部',
       journal: '期刊论文',
@@ -76,6 +77,20 @@ export default {
     noResults: '没有找到匹配的论文',
     expandAbstract: '展开摘要',
     collapseAbstract: '收起摘要',
+  },
+
+  // 科研成果
+  achievements: {
+    title: '科研成果',
+    subtitle: '团队专利、荣誉奖项与其他科研成果',
+    patentsTitle: '专利',
+    awardsTitle: '荣誉奖项',
+    noPatents: '暂无专利',
+    noAwards: '暂无奖项',
+    inventors: '发明人',
+    patentNumber: '专利号',
+    status: '状态',
+    link: '查看专利',
   },
   
   // 联系我们

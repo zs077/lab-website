@@ -57,7 +57,7 @@ export default function PublicationList() {
 
       return matchesSearch && matchesCategory && matchesYear;
     })
-    .sort((a, b) => b.year - a.year);
+    .sort((a, b) => b.year - a.year || b.id - a.id);
 
   const totalPages = Math.ceil(filteredPublications.length / PUBLICATIONS_PER_PAGE);
   const activePage = Math.min(currentPage, totalPages || 1);

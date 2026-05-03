@@ -14,6 +14,7 @@ const navLinks = [
   { name: 'nav.home', path: '/' },
   { name: 'nav.research', path: '/research' },
   { name: 'nav.publications', path: '/publications' },
+  { name: 'nav.achievements', path: '/achievements' },
   { name: 'nav.team', path: '/team' },
   { name: 'nav.contact', path: '/contact' },
 ];
@@ -69,7 +70,7 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -102,7 +103,7 @@ export default function Navbar() {
         </div>
         
         {/* Mobile Menu Button */}
-        <div className="flex items-center md:hidden">
+        <div className="flex items-center lg:hidden">
           <ClientWrapper>
             <SearchBar />
           </ClientWrapper>
@@ -117,7 +118,7 @@ export default function Navbar() {
       
       {/* Mobile Menu */}
       <motion.div
-        className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}
+        className={`lg:hidden ${isOpen ? 'block' : 'hidden'}`}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
         transition={{ duration: 0.3 }}

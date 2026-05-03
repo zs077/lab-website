@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '科研实验室 | 科研成果',
-  description: '查看我们团队在顶级期刊和会议发表的论文和研究成果。',
+  title: '科研实验室 | 论文发表',
+  description: '查看我们团队在期刊、会议和学术出版物中发表的论文。',
 };
 
 export default function PublicationsLayout({

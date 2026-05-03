@@ -22,7 +22,7 @@ export default function AwardList() {
       const matchesYear = yearFilter === null || award.year === yearFilter;
       return matchesYear;
     })
-    .sort((a, b) => a.id - b.id);
+    .sort((a, b) => b.year - a.year || b.id - a.id);
 
   const selectedAward = awards.find(a => a.id === selectedAwardId);
 
@@ -52,7 +52,7 @@ export default function AwardList() {
       <div className="space-y-6">
         {filteredAwards.length === 0 ? (
           <p className="text-center text-gray-400 py-6">
-            {lang === 'zh' ? '暂无奖项' : 'No awards found'}
+            {t('achievements.noAwards')}
           </p>
         ) : (
           filteredAwards.map((award) => (

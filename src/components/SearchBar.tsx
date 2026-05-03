@@ -138,10 +138,10 @@ export default function SearchBar() {
   const getCategoryLabel = (category: string) => {
     if (i18n.language === 'zh') {
       return category === 'research' ? '研究方向' : 
-             category === 'team' ? '团队成员' : '科研成果';
+             category === 'team' ? '团队成员' : '论文发表';
     } else {
       return category === 'research' ? 'Research' : 
-             category === 'team' ? 'Team' : 'Publication';
+             category === 'team' ? 'Team' : 'Publications';
     }
   };
   

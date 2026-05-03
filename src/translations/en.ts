@@ -4,7 +4,8 @@ export default {
     home: 'Home',
     research: 'Research',
     team: 'Team',
-    publications: 'Research Achievements',
+    publications: 'Publications',
+    achievements: 'Research Achievements',
     contact: 'Contact',
   },
   
@@ -62,7 +63,7 @@ export default {
   // Publications
   publications: {
     title: 'Publications',
-    subtitle: 'Our latest research achievements and academic papers',
+    subtitle: 'Our latest journal papers, conference papers, and academic publications',
     viewAll: 'View All Publications',
     filter: {
       all: 'All',
@@ -76,6 +77,20 @@ export default {
     noResults: 'No matching publications found',
     expandAbstract: 'Show Abstract',
     collapseAbstract: 'Hide Abstract',
+  },
+
+  // Research Achievements
+  achievements: {
+    title: 'Research Achievements',
+    subtitle: 'Patents, honors, awards, and other team achievements',
+    patentsTitle: 'Patents',
+    awardsTitle: 'Honors & Awards',
+    noPatents: 'No patents found',
+    noAwards: 'No awards found',
+    inventors: 'Inventors',
+    patentNumber: 'Patent No.',
+    status: 'Status',
+    link: 'View Patent',
   },
   
   // Contact
