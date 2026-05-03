@@ -80,7 +80,7 @@ export const awards: Award[] = [
     certificateImage: null,
   },
   {
-    id: 4,
+    id: 1,
     title: {
       zh: '全国"启真问智"人工智能模型&智能体大赛一等奖',
       en: 'First Prize, National "Qizhen Wenzhi" AI Model & Intelligent Agent Competition',
@@ -93,7 +93,7 @@ export const awards: Award[] = [
     certificateImage: '/images/awards/f0ba41f3e7c9ee02f4bb848b879b4e3a.jpg',
   },
   {
-    id: 5,
+    id: 4,
     title: {
       zh: '中国机器人及人工智能大赛三等奖',
       en: 'Third Prize, China Robotics and Artificial Intelligence Competition',
@@ -102,7 +102,7 @@ export const awards: Award[] = [
       zh: '中国机器人产业联盟',
       en: 'China Robot Industry Alliance',
     },
-    year: 2025,
+    year: 2024,
     certificateImage: null,
   },
   // ▲▲▲ 在此行上方添加新奖项 ▲▲▲
