@@ -43,16 +43,16 @@ export default function Achievements() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16">
-        <section className="mb-20">
-          <h2 className="section-title mb-8">{t('achievements.patentsTitle')}</h2>
+      <div className="container mx-auto px-4 py-8">
+        <section className="mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">{t('achievements.patentsTitle')}</h2>
           <ClientWrapper>
             <PatentList />
           </ClientWrapper>
         </section>
 
         <section>
-          <h2 className="section-title mb-8">{t('achievements.awardsTitle')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">{t('achievements.awardsTitle')}</h2>
           <ClientWrapper>
             <AwardList />
           </ClientWrapper>

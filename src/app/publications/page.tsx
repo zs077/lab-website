@@ -39,7 +39,7 @@ export default function Publications() {
         </div>
       </div>
 
-      <div className="py-16">
+      <div className="py-8">
         <div className="container mx-auto px-4">
           <section>
             <ClientWrapper>
