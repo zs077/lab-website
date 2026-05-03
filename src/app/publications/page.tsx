@@ -21,6 +21,7 @@ const PublicationList = dynamic(() => import('@/components/PublicationList'), {
 
 export default function Publications() {
   const { t } = useTranslation();
+  const subtitle = t('publications.subtitle');
   
   return (
     <main className="flex min-h-screen flex-col">
@@ -33,9 +34,11 @@ export default function Publications() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             {t('publications.title')}
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
-            {t('publications.subtitle')}
-          </p>
+          {subtitle && (
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
+              {subtitle}
+            </p>
+          )}
         </div>
       </div>
 

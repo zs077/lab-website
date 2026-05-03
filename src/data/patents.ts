@@ -8,7 +8,10 @@
 //     zh: '专利名称（中文）',
 //     en: 'Patent Title (English)',
 //   },
-//   inventors: '梁茨, 张三, 李四',
+//   inventors: {
+//     zh: '梁茨, 张三, 李四',
+//     en: 'Ci Liang, San Zhang, Si Li',
+//   },
 //   patentNumber: 'CNXXXXXXXXX',
 //   year: 2025,
 //   status: {
@@ -29,7 +32,12 @@ export type Patent = {
     zh: string;
     en: string;
   };
-  inventors: string;
+  inventors:
+    | string
+    | {
+        zh: string;
+        en: string;
+      };
   patentNumber?: string;
   year: number;
   status?: {
@@ -49,9 +57,12 @@ export const patents: Patent[] = [
     id: 0,
     title: {
       zh: '一种基于RSS的自动驾驶路权优化换道方法',
-      en: '一种基于RSS的自动驾驶路权优化换道方法',
+      en: 'An RSS-based right-of-way optimization lane-changing method for autonomous driving',
     },
-    inventors: '王天筱; 梁茨; 郑伟; 冉琦; 辛豪宇; 杨静; 席振杰; 于祎钒; 万泽众; 闫海奇',
+    inventors: {
+      zh: '王天筱; 梁茨; 郑伟; 冉琦; 辛豪宇; 杨静; 席振杰; 于祎钒; 万泽众; 闫海奇',
+      en: 'Tianxiao Wang; Ci Liang; Wei Zheng; Qi Ran; Haoyu Xin; Jing Yang; Zhenjie Xi; Yifan Yu; Zezhong Wan; Haiqi Yan',
+    },
     patentNumber: 'ZL 2024 1 1589507.5',
     year: 2025,
     status: {
@@ -60,7 +71,7 @@ export const patents: Patent[] = [
     },
     description: {
       zh: '中国专利，ZL 2024 1 1589507.5，2025-10-10.',
-      en: '中国专利，ZL 2024 1 1589507.5，2025-10-10.',
+      en: 'Chinese patent, ZL 2024 1 1589507.5, October 10, 2025.',
     },
     link: '',
   },
@@ -79,7 +90,7 @@ export const patents: Patent[] = [
     },
     description: {
       zh: '美国专利，US 12,293,278 B2，May 6, 2025.',
-      en: '美国专利，US 12,293,278 B2，May 6, 2025.',
+      en: 'U.S. patent, US 12,293,278 B2, May 6, 2025.',
     },
     link: '',
   },

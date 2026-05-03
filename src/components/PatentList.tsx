@@ -10,6 +10,8 @@ export default function PatentList() {
   const { t, i18n } = useTranslation();
   const lang: 'zh' | 'en' = i18n.language?.startsWith('zh') ? 'zh' : 'en';
   const [yearFilter, setYearFilter] = useState<number | null>(null);
+  const getLocalizedText = (value: string | { zh: string; en: string }) =>
+    typeof value === 'string' ? value : value[lang];
 
   const years = [...new Set(patents.map((patent) => patent.year))].sort((a, b) => b - a);
 
@@ -64,7 +66,7 @@ export default function PatentList() {
                         </h3>
                         <p className="mt-2 text-gray-300">
                           <span className="text-gray-400">{t('achievements.inventors')}: </span>
-                          {patent.inventors}
+                          {getLocalizedText(patent.inventors)}
                         </p>
                       </div>
                       <div className="flex flex-wrap items-center gap-2 sm:justify-end">

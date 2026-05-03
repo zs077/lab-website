@@ -63,7 +63,7 @@ export default {
   // Publications
   publications: {
     title: 'Publications',
-    subtitle: 'Our latest journal papers, conference papers, and academic publications',
+    subtitle: '',
     viewAll: 'View All Publications',
     filter: {
       all: 'All',

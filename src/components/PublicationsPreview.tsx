@@ -18,6 +18,7 @@ import { publications } from '@/data/publications';
 export default function PublicationsPreview() {
   const { t, i18n } = useTranslation();
   const lang: 'zh' | 'en' = i18n.language?.startsWith('zh') ? 'zh' : 'en';
+  const subtitle = t('publications.subtitle');
   
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -44,14 +45,16 @@ export default function PublicationsPreview() {
         >
           {t('publications.title')}
         </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl text-gray-300 max-w-3xl mx-auto"
-        >
-          {t('publications.subtitle')}
-        </motion.p>
+        {subtitle && (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
+          >
+            {subtitle}
+          </motion.p>
+        )}
       </div>
 
       <div className="space-y-6">
