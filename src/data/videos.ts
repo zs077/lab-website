@@ -49,6 +49,22 @@ export type VideoItem = {
 // ▼▼▼ 在此数组中维护所有视频演示数据 ▼▼▼
 export const videos: VideoItem[] = [
   {
+    id: 0,
+    year: 2026,
+    title: {
+      zh: '寒区智驾虚实融合测试平台',
+      en: 'L4 advanced autonomous vehicle',
+    },
+    description: {
+      zh: '一期L4级自动驾驶实车已就位。',
+      en: 'The Phase I L4 advanced autonomous vehicle is now in place.',
+    },
+    posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
+    ossSrc: null,
+    bilibiliId: '1q5VN6LE5j',
+    youtubeId: 'Ev6gcyGkpWA',
+  },
+  {
     id: 1,
     year: 2026,
     title: {
@@ -61,7 +77,7 @@ export const videos: VideoItem[] = [
     },
     posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
     ossSrc: 'https://lab-01.oss-cn-beijing.aliyuncs.com/%E5%9C%BA%E6%99%AF%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB.mp4',
-    bilibiliId: null,
+    bilibiliId: '15nVN63ETt',
     youtubeId: 'OoveHoq3qiU',
   },
   {
@@ -77,7 +93,7 @@ export const videos: VideoItem[] = [
     },
     posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
     ossSrc: 'https://lab-01.oss-cn-beijing.aliyuncs.com/%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%90%9C%E6%95%91%E6%BC%94%E7%A4%BA.mp4',
-    bilibiliId: null,
+    bilibiliId: '17GVN62EZN',
     youtubeId: '00jQXgcIMXM',
   },
   {
@@ -93,7 +109,7 @@ export const videos: VideoItem[] = [
     },
     posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
     ossSrc: 'https://lab-01.oss-cn-beijing.aliyuncs.com/b6def7cb90a5498e5beac2d3d51cad32.mp4',
-    bilibiliId: null,
+    bilibiliId: '1EGVN62Ej5',
     youtubeId: 'JOSuxa-SUdY',
   },
   

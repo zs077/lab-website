@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiX, FiVideo } from 'react-icons/fi';
@@ -8,16 +8,57 @@ import { useTranslation } from 'react-i18next';
 import ReactPlayer from 'react-player';
 import { videos, VideoItem } from '@/data/videos';
 
-function resolveUrl(item: VideoItem, lang: 'zh' | 'en'): string | null {
+type VideoSource = {
+  provider: 'oss' | 'bilibili' | 'youtube';
+  url: string;
+};
+
+const PLAYER_LOAD_TIMEOUT_MS = 7000;
+
+function normalizeBilibiliId(id: string): string {
+  const trimmedId = id.trim();
+  const matchedId = trimmedId.match(/BV[A-Za-z0-9]+/i)?.[0] ?? trimmedId;
+
+  return matchedId.startsWith('BV') ? matchedId : `BV${matchedId}`;
+}
+
+function uniqueSources(sources: Array<VideoSource | null>): VideoSource[] {
+  const seen = new Set<string>();
+
+  return sources.filter((source): source is VideoSource => {
+    if (!source || seen.has(source.url)) return false;
+    seen.add(source.url);
+    return true;
+  });
+}
+
+function getVideoSources(item: VideoItem, lang: 'zh' | 'en'): VideoSource[] {
+  const oss = item.ossSrc
+    ? {
+        provider: 'oss' as const,
+        url: item.ossSrc,
+      }
+    : null;
+  const bilibili = item.bilibiliId
+    ? {
+        provider: 'bilibili' as const,
+        url: `https://player.bilibili.com/player.html?isOutside=true&bvid=${normalizeBilibiliId(
+          item.bilibiliId
+        )}&page=1&autoplay=1`,
+      }
+    : null;
+  const youtube = item.youtubeId
+    ? {
+        provider: 'youtube' as const,
+        url: `https://www.youtube.com/watch?v=${item.youtubeId}`,
+      }
+    : null;
+
   if (lang === 'zh') {
-    if (item.ossSrc) return item.ossSrc;
-    if (item.bilibiliId)
-      return `https://player.bilibili.com/player.html?bvid=BV${item.bilibiliId}&page=1`;
-  } else {
-    if (item.youtubeId) return `https://www.youtube.com/watch?v=${item.youtubeId}`;
-    if (item.ossSrc) return item.ossSrc;
+    return uniqueSources([oss, bilibili, youtube]);
   }
-  return null;
+
+  return uniqueSources([oss, youtube, bilibili]);
 }
 
 function getYoutubePoster(youtubeId: string): string {
@@ -34,14 +75,44 @@ function VideoModal({
   onClose: () => void;
 }) {
   const { t } = useTranslation();
-  const url = resolveUrl(item, lang);
+  const sources = useMemo(() => getVideoSources(item, lang), [item, lang]);
+  const [sourceIndex, setSourceIndex] = useState(0);
+  const [isReady, setIsReady] = useState(false);
+  const [loadFailed, setLoadFailed] = useState(false);
+  const activeSource = sources[sourceIndex] ?? null;
 
-  let lightValue: string | boolean = false;
-  if (item.posterSrc) {
-    lightValue = item.posterSrc;
-  } else if (item.youtubeId) {
-    lightValue = getYoutubePoster(item.youtubeId);
-  }
+  useEffect(() => {
+    setSourceIndex(0);
+    setIsReady(false);
+    setLoadFailed(false);
+  }, [item.id, lang]);
+
+  useEffect(() => {
+    setIsReady(false);
+    setLoadFailed(false);
+  }, [activeSource?.url]);
+
+  useEffect(() => {
+    if (!activeSource || isReady || loadFailed) return undefined;
+
+    const timer = window.setTimeout(() => {
+      if (sourceIndex < sources.length - 1) {
+        setSourceIndex((current) => Math.min(current + 1, sources.length - 1));
+      } else {
+        setLoadFailed(true);
+      }
+    }, PLAYER_LOAD_TIMEOUT_MS);
+
+    return () => window.clearTimeout(timer);
+  }, [activeSource?.url, isReady, loadFailed, sourceIndex, sources.length]);
+
+  const tryNextSource = () => {
+    if (sourceIndex < sources.length - 1) {
+      setSourceIndex((current) => Math.min(current + 1, sources.length - 1));
+    } else {
+      setLoadFailed(true);
+    }
+  };
 
   return (
     <div
@@ -58,15 +129,54 @@ function VideoModal({
 
       <div className="w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
         <div className="aspect-video bg-black overflow-hidden rounded-t-lg">
-          {url ? (
-            <ReactPlayer
-              url={url}
-              width="100%"
-              height="100%"
-              controls
-              playing
-              light={lightValue}
-            />
+          {loadFailed ? (
+            <div className="w-full h-full flex flex-col items-center justify-center text-gray-500 gap-3 px-4 text-center">
+              <FiVideo size={48} />
+              <p className="text-sm">Video failed to load</p>
+              <p className="text-xs opacity-60">
+                Please check the video links or add another fallback source.
+              </p>
+            </div>
+          ) : activeSource ? (
+            <div className="relative h-full">
+              {activeSource.provider === 'bilibili' ? (
+                <iframe
+                  key={activeSource.url}
+                  src={activeSource.url}
+                  title={item.title[lang]}
+                  className="h-full w-full"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  onLoad={() => setIsReady(true)}
+                />
+              ) : (
+                <ReactPlayer
+                  key={activeSource.url}
+                  url={activeSource.url}
+                  width="100%"
+                  height="100%"
+                  controls
+                  playing
+                  playsinline
+                  onReady={() => setIsReady(true)}
+                  onStart={() => setIsReady(true)}
+                  onError={() => tryNextSource()}
+                  config={{
+                    file: {
+                      attributes: {
+                        poster: item.posterSrc || undefined,
+                        preload: 'metadata',
+                      },
+                    },
+                  }}
+                />
+              )}
+              {!isReady && sources.length > 1 && (
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-black/70 px-4 py-2 text-xs text-gray-300">
+                  Selecting an available video source...
+                </div>
+              )}
+            </div>
           ) : (
             <div className="w-full h-full flex flex-col items-center justify-center text-gray-500 gap-3">
               <FiVideo size={48} />
@@ -100,7 +210,10 @@ function CardThumbnail({
   youtubeId: string | null;
   title: string;
 }) {
-  const imgSrc = posterSrc ?? (youtubeId ? getYoutubePoster(youtubeId) : null);
+  const [imageFailed, setImageFailed] = useState(false);
+  const imgSrc = imageFailed
+    ? null
+    : posterSrc ?? (youtubeId ? getYoutubePoster(youtubeId) : null);
 
   if (imgSrc) {
     return (
@@ -110,6 +223,7 @@ function CardThumbnail({
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 768px) 100vw, 33vw"
+        onError={() => setImageFailed(true)}
       />
     );
   }
