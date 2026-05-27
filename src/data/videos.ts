@@ -60,7 +60,7 @@ export const videos: VideoItem[] = [
       en: 'The Phase I L4 advanced autonomous vehicle is now in place.',
     },
     posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
-    ossSrc: null,
+    ossSrc: 'https://labl.oss-cn-beijing.aliyuncs.com/8f7d8794b366825f6c36967c6b4e910a_raw.mp4',
     bilibiliId: '1q5VN6LE5j',
     youtubeId: 'Ev6gcyGkpWA',
   },
@@ -76,7 +76,7 @@ export const videos: VideoItem[] = [
       en: 'Utilizing image-text encoding and vision-language multimodal large models, this system implements voice annotation for new instances and provides text-to-speech risk warnings for high-risk objects. It demonstrates strong performance in challenging autonomous driving corner cases, including nighttime, rain, fog, snow, and abnormal object encounters.',
     },
     posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
-    ossSrc: 'https://lab-01.oss-cn-beijing.aliyuncs.com/%E5%9C%BA%E6%99%AF%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB.mp4',
+    ossSrc: 'https://labl.oss-cn-beijing.aliyuncs.com/5c4f345f0a58fe7757e09fbe6aab37fe_raw.mp4',
     bilibiliId: '15nVN63ETt',
     youtubeId: 'OoveHoq3qiU',
   },
@@ -92,7 +92,7 @@ export const videos: VideoItem[] = [
       en: 'Utilizing UAVs for disaster site reconnaissance, this system transmits real-time data back to the command terminal to dynamically generate intelligent search and rescue plans based on vision-language multimodal large models.',
     },
     posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
-    ossSrc: 'https://lab-01.oss-cn-beijing.aliyuncs.com/%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%90%9C%E6%95%91%E6%BC%94%E7%A4%BA.mp4',
+    ossSrc: 'https://labl.oss-cn-beijing.aliyuncs.com/%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%90%9C%E6%95%91%E6%BC%94%E7%A4%BA.mp4',
     bilibiliId: '17GVN62EZN',
     youtubeId: '00jQXgcIMXM',
   },
@@ -108,7 +108,7 @@ export const videos: VideoItem[] = [
       en: "This demonstrates the Intelligent STPA Safety Analysis System for autonomous driving developed by our team. By integrating Large Language Models (LLMs) with expert knowledge bases, the system takes top-level hazards and control actions as inputs to assist in deducing Unsafe Control Actions (UCAs), ultimately uncovering the root 'causal scenarios' of potential hazards. Dedicated to empowering industry safety professionals, this system provides unprecedented clarity in the safety analysis of complex systems.",
     },
     posterSrc: null,     // e.g. 'https://your-bucket.oss-cn-beijing.aliyuncs.com/demo2-poster.jpg'
-    ossSrc: 'https://lab-01.oss-cn-beijing.aliyuncs.com/b6def7cb90a5498e5beac2d3d51cad32.mp4',
+    ossSrc: 'https://labl.oss-cn-beijing.aliyuncs.com/1.mp4',
     bilibiliId: '1EGVN62Ej5',
     youtubeId: 'JOSuxa-SUdY',
   },
