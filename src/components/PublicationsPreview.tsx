@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import { FiFileText } from 'react-icons/fi';
 import { publications } from '@/data/publications';
+import PublicationVenue from '@/components/PublicationVenue';
 
 // ============================================================
 // 📌 主页论文预览组件
@@ -86,7 +87,7 @@ export default function PublicationsPreview() {
                 <p className="text-gray-300 mb-1">{pub.authors}</p>
 
                 {/* 期刊/会议 */}
-                <p className="text-gray-400 text-sm">{pub.venue}</p>
+                <PublicationVenue venue={pub.venue} className="text-gray-400 text-sm" />
               </div>
             </div>
           </motion.div>

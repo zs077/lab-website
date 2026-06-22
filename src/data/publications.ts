@@ -37,6 +37,18 @@ export type Publication = {
 // ▼▼▼ 在此数组中维护所有论文数据 ▼▼▼
 export const publications: Publication[] = [
   {
+    id: 17,
+    title: 'GA2AD: A Generalized Adaptive Adversarial Training Framework Considering Surrounding Hybrid Risk Field for Autonomous Driving.',
+    authors: 'H. Xu, Y. Ci1*, Y. Long, C. Liang1*, L. Wu, X. Chen, M. Ghazel, L. Feng',
+    venue: 'Nature Communications, 2026.',
+    year: 2026,
+    category: 'journal',
+    abstract: {
+      en: 'Accepted by Nature Communications.',
+      zh: '已被 Nature Communications 接收。',
+    },
+  },
+  {
     id: 1,
     title: 'Dynamic Cumulative Human-Like Brake Control Modeling for Autonomous Vehicle Collision Analysis.',
     authors: 'Ci Liang, Mohamed. Ghazel, Wei. Zheng and Wei. Chen',

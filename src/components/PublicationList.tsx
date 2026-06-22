@@ -13,6 +13,7 @@ import {
 } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import { publications } from '@/data/publications';
+import PublicationVenue from '@/components/PublicationVenue';
 
 const PUBLICATIONS_PER_PAGE = 7;
 
@@ -169,7 +170,7 @@ export default function PublicationList() {
                     <p className="text-gray-300 mb-1">{pub.authors}</p>
 
                     {/* 期刊/会议（固定显示） */}
-                    <p className="text-gray-400 text-sm mb-3">{pub.venue}</p>
+                    <PublicationVenue venue={pub.venue} className="text-gray-400 text-sm mb-3" />
 
                     {/* 操作区：仅保留「展开/收起摘要」 */}
                     <div className="flex flex-wrap items-center gap-4">
