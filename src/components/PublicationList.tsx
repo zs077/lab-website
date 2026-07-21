@@ -216,7 +216,7 @@ export default function PublicationList() {
                     transition={{ duration: 0.3 }}
                     className="mt-4 ml-10 pl-4 border-l-2 border-gray-700"
                   >
-                    <p className="text-gray-300">{pub.abstract[lang]}</p>
+                    <p className="text-gray-300">{pub.abstract.en}</p>
                   </motion.div>
                 )}
               </div>
