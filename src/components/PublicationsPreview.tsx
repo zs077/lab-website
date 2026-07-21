@@ -88,6 +88,17 @@ export default function PublicationsPreview() {
 
                 {/* 期刊/会议 */}
                 <PublicationVenue venue={pub.venue} className="text-gray-400 text-sm" />
+
+                {pub.doi && (
+                  <a
+                    href={`https://doi.org/${pub.doi}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 inline-block text-sm text-primary hover:underline"
+                  >
+                    DOI: {pub.doi}
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>

@@ -26,6 +26,7 @@ export type Publication = {
   title: string;
   authors: string;
   venue: string;
+  doi?: string;
   year: number;
   category: string; // 可填任意字符串，如 'journal'、'conference'、'book'、'patent' 等
   abstract: {
@@ -41,6 +42,7 @@ export const publications: Publication[] = [
     title: 'GA2AD: A Generalized Adaptive Adversarial Training Framework Considering Surrounding Hybrid Risk Field for Autonomous Driving.',
     authors: 'H. Xu, Y. Ci1*, Y. Long, C. Liang1*, L. Wu, X. Chen, M. Ghazel, L. Feng',
     venue: 'Nature Communications, 2026.',
+    doi: '10.1038/s41467-026-75643-z',
     year: 2026,
     category: 'journal',
     abstract: {

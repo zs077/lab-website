@@ -40,6 +40,7 @@ export default function PublicationList() {
       const matchesSearch =
         pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         pub.authors.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pub.doi?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         abstractText.toLowerCase().includes(searchTerm.toLowerCase());
 
       // 筛选逻辑：journal/conference 精确匹配，其他归为 'other'
@@ -171,6 +172,17 @@ export default function PublicationList() {
 
                     {/* 期刊/会议（固定显示） */}
                     <PublicationVenue venue={pub.venue} className="text-gray-400 text-sm mb-3" />
+
+                    {pub.doi && (
+                      <a
+                        href={`https://doi.org/${pub.doi}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mb-3 inline-block text-sm text-primary hover:underline"
+                      >
+                        DOI: {pub.doi}
+                      </a>
+                    )}
 
                     {/* 操作区：仅保留「展开/收起摘要」 */}
                     <div className="flex flex-wrap items-center gap-4">
