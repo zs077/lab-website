@@ -30,9 +30,11 @@ export default function PublicationsPreview() {
   const previewCount = 4;
 
   // 按年份降序排列，同一年按 id 降序，取前 N 篇
-  const sortedPublications = [...publications].sort(
-    (a, b) => b.year - a.year || b.id - a.id
-  );
+  const sortedPublications = [...publications].sort((a, b) => {
+    const orderA = a.displayOrder ?? Number.MAX_SAFE_INTEGER;
+    const orderB = b.displayOrder ?? Number.MAX_SAFE_INTEGER;
+    return orderA - orderB || b.year - a.year || b.id - a.id;
+  });
   const previewPublications = sortedPublications.slice(0, previewCount);
 
   return (

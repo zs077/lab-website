@@ -59,7 +59,11 @@ export default function PublicationList() {
 
       return matchesSearch && matchesCategory && matchesYear;
     })
-    .sort((a, b) => b.year - a.year || b.id - a.id);
+    .sort((a, b) => {
+      const orderA = a.displayOrder ?? Number.MAX_SAFE_INTEGER;
+      const orderB = b.displayOrder ?? Number.MAX_SAFE_INTEGER;
+      return orderA - orderB || b.year - a.year || b.id - a.id;
+    });
 
   const totalPages = Math.ceil(filteredPublications.length / PUBLICATIONS_PER_PAGE);
   const activePage = Math.min(currentPage, totalPages || 1);

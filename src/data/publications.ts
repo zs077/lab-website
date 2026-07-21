@@ -27,6 +27,7 @@ export type Publication = {
   authors: string;
   venue: string;
   doi?: string;
+  displayOrder?: number;
   year: number;
   category: string; // 可填任意字符串，如 'journal'、'conference'、'book'、'patent' 等
   abstract: {
@@ -43,6 +44,7 @@ export const publications: Publication[] = [
     authors: 'H. Xu, Y. Ci1*, Y. Long, C. Liang1*, L. Wu, X. Chen, M. Ghazel, L. Feng',
     venue: 'Nature Communications, 2026.',
     doi: '10.1038/s41467-026-75643-z',
+    displayOrder: 1,
     year: 2026,
     category: 'journal',
     abstract: {
@@ -55,6 +57,7 @@ export const publications: Publication[] = [
     title: 'Dynamic Cumulative Human-Like Brake Control Modeling for Autonomous Vehicle Collision Analysis.',
     authors: 'Ci Liang, Mohamed. Ghazel, Wei. Zheng and Wei. Chen',
     venue: 'IEEE Transactions on Vehicular Technology, vol. 74, no. 3, pp. 3976-3990, 2025.',
+    displayOrder: 2,
     year: 2025,
     category: 'journal',
     abstract: {
@@ -67,11 +70,51 @@ export const publications: Publication[] = [
     title: 'A dynamic synchronous interactive functional validation approach for electric vehicles.',
     authors: 'Ci Liang, Mohamed Ghazel, Chi Xie, Wei Zheng and Wei Chen',
     venue: 'IEEE Transactions on Intelligent Vehicles, 2024.',
+    displayOrder: 3,
     year: 2024,
     category: 'journal',
     abstract: {
       en: 'Functional safety is crucial for Electric Vehicles (EVs) as it ensures that the EV systems operate correctly and safely. This paper aims to propose an efficient and holistic approach to verify functionality and ensure the functional safety of EVs. A holistic closed-loop dynamic synchronous functional validation (CL-DSFV) methodology is proposed. The CL-DSFV methodology consists of a set of sequential analysis/modeling methods: use case analysis, functional concept analysis, functional state/transition modeling, simulation method of the user interaction based on dynamic synchronous interconnection between the FSM and the user behavior simulation platform, verification method of checking correctness and completeness of functions according to the user behavior cover list and test cases. Moreover, a novel transition engine with usage and functionality features is originally developed to constrain the switching between functional states of the FSM. UIG algorithm is originally proposed to generate functional validation configurations automatically and further achieve the automation of dynamic synchronous validation. Superiority of the CL-DSFV is verified through the comparison with several referred relevant existing methods. Furthermore, CL-DSFV is applied to functional validation of the product function “Electrical Energy Management” (EEM) of EVs. The outcomes attest that the CL-DSFV allows for effectively ensuring the completeness and correctness of the considered functions, and helps ensure the traceability of function decomposition.',
       zh: '功能安全对于电动汽车（EV）至关重要，因为它确保电动汽车系统能够正确、安全地运行。本文旨在提出一种高效、全面的方法，用于验证电动汽车的功能并确保其功能安全。本文提出了一种整体闭环动态同步功能验证（CL-DSFV）方法。CL-DSFV 方法包含一系列顺序分析/建模方法：用例分析、功能概念分析、功能状态/转换建模、基于有限状态机（FSM）与用户行为仿真平台之间动态同步互连的用户交互仿真方法，以及根据用户行为覆盖列表和测试用例检查功能正确性和完整性的验证方法。此外，本文还原创性地开发了一种具有使用和功能特性的新型转换引擎，用于约束 FSM 功能状态之间的切换。同时，本文还原创性地提出了 UIG 算法，用于自动生成功能验证配置，并进一步实现动态同步验证的自动化。通过与几种相关的现有方法进行比较，验证了 CL-DSFV 方法的优越性。此外，CL-DSFV 还应用于电动汽车“电能管理”（EEM）产品功能的功能验证。结果表明，CL-DSFV 能够有效确保所考虑功能的完整性和正确性，并有助于确保功能分解的可追溯性。',
+    },
+  },
+  {
+    id: 18,
+    title: 'CLOSURE: Closed-LOop Self-evolving large LangUage model framework for REal-time adversarial scenario generation.',
+    authors: 'Haocheng Xu, Yusheng Ci, Yunfei Long, Ci Liang, Lina Wu',
+    venue: 'Transportation Research Part C: Emerging Technologies, vol. 191, 105817, 2026.',
+    displayOrder: 4,
+    year: 2026,
+    category: 'journal',
+    abstract: {
+      en: 'The validation of autonomous driving systems requires rigorous testing against rare, safety-critical scenarios, yet real-world data collection is hindered by the curse of rarity. CLOSURE is a closed-loop self-evolving large language model framework for real-time adversarial scenario generation. It combines a self-evolving risk scenario library, physics-constrained retrieval-augmented generation, and a unified semantic representation for real-world and online-generated cases. Experiments in SUMO show substantial increases in collision discovery and scenario diversity compared with rule-based perturbation, demonstrating an effective and scalable approach to evaluating the robustness of autonomous driving systems.',
+      zh: '自动驾驶系统的验证需要针对罕见且安全攸关的场景进行严格测试，但现实数据采集受到“稀有性诅咒”的限制。CLOSURE 是一个用于实时对抗场景生成的闭环自进化大语言模型框架，结合了自进化风险场景库、物理约束的检索增强生成，以及面向真实案例与在线生成案例的统一语义表示。SUMO 实验表明，与基于规则的扰动方法相比，该框架显著提高了碰撞场景发现能力和场景多样性，为评估自动驾驶系统鲁棒性提供了有效且可扩展的方法。',
+    },
+  },
+  {
+    id: 19,
+    title: 'Dual-network proportional variable speed limit control for mixed traffic flows with multi-level automated vehicles.',
+    authors: 'Yanlin Li, Ci Liang, Yusheng Ci, Haocheng Xu, Yuying Wang',
+    venue: 'Expert Systems with Applications, 130187, 2026.',
+    displayOrder: 5,
+    year: 2026,
+    category: 'journal',
+    abstract: {
+      en: 'This study addresses variable speed limit control in mixed traffic flows containing human-driven, semi-automated, and fully automated vehicles. It proposes a dual-network proportional variable speed limit framework that combines a global policy generator with a local vehicle selector. The global network determines the optimal speed limit and control proportion, while the local network identifies which automated vehicles should receive commands based on microscopic traffic features. Simulation results show reductions in traffic delay, emissions, and fuel consumption, while mitigating frequent speed-limit fluctuations and automated-driving disengagement risk.',
+      zh: '本研究面向由人工驾驶、半自动驾驶和全自动驾驶车辆组成的混合交通流，研究可变限速控制问题，并提出由全局策略生成器和局部车辆选择器构成的双网络比例可变限速框架。全局网络确定最优限速值和受控车辆比例，局部网络则依据微观交通特征选择接收指令的自动驾驶车辆。仿真结果表明，该方法能够降低交通延误、排放和燃油消耗，同时减少限速频繁波动并降低自动驾驶退出风险。',
+    },
+  },
+  {
+    id: 20,
+    title: 'FADE: Frequency-aware desnowing with explicit gradient structural prompts for robust foundation model perception.',
+    authors: 'Chengzhe Jiao, Lina Wu, Yusheng Ci, Ci Liang, Shaowu Cheng',
+    venue: 'Pattern Recognition, vol. 180, 114252, 2026.',
+    displayOrder: 6,
+    year: 2026,
+    category: 'journal',
+    abstract: {
+      en: 'Visual perception in snowy environments is degraded by veiling and opaque snow occlusions that weaken or hide important structural details. FADE is a frequency-aware desnowing network that restores snowy images as a preprocessing interface for downstream vision foundation models. It combines a structural prompt generator, which progressively encodes gradient features into explicit prompts, with a frequency-guided module that regularizes amplitude and phase reconstruction. Experiments on multiple benchmarks show state-of-the-art restoration performance and improved robustness for downstream visual applications.',
+      zh: '雪天环境中的视觉感知会受到雪幕和不透明积雪遮挡的影响，重要结构细节因此被削弱或隐藏。FADE 是一种频率感知去雪网络，可恢复雪天图像，并作为下游视觉基础模型的预处理接口。该方法将结构提示生成器与频率引导模块结合：前者逐步把梯度特征编码为显式结构提示，后者对幅度和相位重建进行正则化。多个基准数据集上的实验表明，FADE 实现了先进的图像恢复性能，并提升了下游视觉应用的鲁棒性。',
     },
   },
   {
