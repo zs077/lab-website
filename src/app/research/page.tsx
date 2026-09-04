@@ -57,6 +57,25 @@ export default function Research() {
           <VideoList />
         </ClientWrapper>
       </div>
+
+      <section className="container mx-auto px-4 py-16" aria-labelledby="open-source-title">
+        <h2 id="open-source-title" className="section-title mb-8 text-center">
+          Open Source
+        </h2>
+        <div className="glassmorphism mx-auto max-w-4xl p-6 md:p-8">
+          <p className="text-lg text-gray-200">
+            Scenario safety constraints:{' '}
+            <a
+              href="https://github.com/EOS-STPA/EOS-STPA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="break-all text-blue-500 underline decoration-blue-500/50 underline-offset-4 transition-colors hover:text-blue-400"
+            >
+              https://github.com/EOS-STPA/EOS-STPA
+            </a>
+          </p>
+        </div>
+      </section>
       
       <ClientWrapper>
         <Footer />
