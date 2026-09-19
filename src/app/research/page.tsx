@@ -62,7 +62,7 @@ export default function Research() {
         <h2 id="open-source-title" className="section-title mb-8 text-center">
           Open Source
         </h2>
-        <div className="glassmorphism mx-auto max-w-4xl p-6 md:p-8">
+        <div className="glassmorphism mx-auto max-w-4xl space-y-4 p-6 md:p-8">
           <p className="text-lg text-gray-200">
             Scenario safety constraints:{' '}
             <a
@@ -72,6 +72,17 @@ export default function Research() {
               className="break-all text-blue-500 underline decoration-blue-500/50 underline-offset-4 transition-colors hover:text-blue-400"
             >
               https://github.com/EOS-STPA/EOS-STPA
+            </a>
+          </p>
+          <p className="text-lg text-gray-200">
+            LE-MoE framework:{' '}
+            <a
+              href="https://github.com/ZMY-Research/LE-MoE-Supplementary-Materials"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="break-all text-blue-500 underline decoration-blue-500/50 underline-offset-4 transition-colors hover:text-blue-400"
+            >
+              https://github.com/ZMY-Research/LE-MoE-Supplementary-Materials
             </a>
           </p>
         </div>
