@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: '科研实验室 | 首页',
-  description: '欢迎访问我们的科研实验室官方网站，了解我们的研究方向、团队成员和最新成果。',
+  description: '欢迎访问我们的科研实验室官方网站，了解我们的研究方向、团队成员和最新成果。 deploy-check-20261017',
 };
 
 export default function RootLayout({
